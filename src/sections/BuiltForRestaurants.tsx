@@ -1,0 +1,124 @@
+import { motion } from 'framer-motion';
+
+const principles = [
+  {
+    title: 'Quiet by Design',
+    description: 'Steward stays out of your way. Information appears only when it helps you make better operational decisions.'
+  },
+  {
+    title: 'Connected by Default',
+    description: 'Ordering, kitchen operations, payments, and reporting work together as one continuous system. No switching between disconnected tools.'
+  },
+  {
+    title: 'Reliable Every Day',
+    description: 'Consistency matters more than novelty. Steward prioritizes dependable operation throughout every service.'
+  },
+  {
+    title: 'Built to Grow',
+    description: "Whether you're running one restaurant or expanding to multiple locations, Steward grows alongside your business without changing how you work."
+  }
+];
+
+export default function BuiltForRestaurants() {
+  // Motion configurations following Level 2/3 timing rules
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut' as const
+      }
+    }
+  };
+
+  const gridVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut' as const
+      }
+    }
+  };
+
+  return (
+    <motion.section
+      id="built-for-restaurants"
+      aria-label="Built for Restaurants"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-10%' }}
+      variants={sectionVariants}
+      className="w-full bg-white section-spacing flex flex-col items-center justify-center"
+    >
+      <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
+        
+        {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-gray-600 mb-[24px]">
+          Built with Restaurants in Mind
+        </p>
+
+        {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-black text-center max-w-[680px] mb-[32px]">
+          Designed around restaurant operations—not software.
+        </h2>
+
+        {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-gray-700 text-center max-w-[640px] mb-[96px]">
+          Restaurants move quickly. Orders change. Teams coordinate constantly. Customers expect speed. 
+          Steward is designed around these realities, providing operational clarity without adding unnecessary complexity.
+        </p>
+
+        {/* Principles Grid - 2x2 on Desktop/Tablet, 1-col on Mobile */}
+        <motion.div
+          variants={gridVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-[24px] lg:gap-[32px] w-full"
+        >
+          {principles.map((item, idx) => {
+            const isCore = idx === 1; // "Connected by Default" is the core differentiator
+            return (
+              <motion.div
+                key={idx}
+                variants={cardVariants}
+                tabIndex={0}
+                className={`bg-white rounded-lg px-[40px] py-[56px] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${
+                  isCore
+                    ? 'border border-gray-200 shadow-md hover:border-gray-400 hover:shadow-lg lg:scale-[1.02]'
+                    : 'border border-gray-100 shadow-sm hover:border-gray-300 hover:shadow-md'
+                }`}
+              >
+                {/* Principle Numbering Tag - Establishes tenets/beliefs rather than generic features */}
+                <span className="font-primary font-medium text-xs text-gray-400 block mb-[12px]">
+                  Principle 0{idx + 1}
+                </span>
+
+                {/* Card Title - Newsreader, Bold */}
+                <h3 className="font-secondary font-bold text-xl text-black mb-[16px]">
+                  {item.title}
+                </h3>
+
+                {/* Card Description - Inter, Body Regular */}
+                <p className="font-primary font-regular text-sm sm:text-base text-gray-700 leading-[1.6]">
+                  {item.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+      </div>
+    </motion.section>
+  );
+}

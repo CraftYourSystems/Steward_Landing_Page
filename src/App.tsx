@@ -1,4 +1,14 @@
 import Navbar from './components/layout/Navbar';
+import Hero from './sections/Hero';
+import Needle from './sections/Needle';
+import OneSystem from './sections/OneSystem';
+import DayWithSteward from './sections/DayWithSteward';
+import BuiltForRestaurants from './sections/BuiltForRestaurants';
+import Pricing from './sections/Pricing';
+import EarlyPartners from './sections/EarlyPartners';
+import FAQ from './sections/FAQ';
+import FinalCTA from './sections/FinalCTA';
+import Footer from './components/layout/Footer';
 
 export default function App() {
   return (
@@ -6,45 +16,38 @@ export default function App() {
       {/* Navigation Component */}
       <Navbar />
 
-      {/* Main content with section targets for scroll spy testing */}
-      <main className="pt-[72px]">
-        {/* Placeholder sections to verify Scroll Spy */}
-        <section
-          id="product"
-          className="container min-h-screen flex items-center justify-center border-b border-gray-100"
-        >
-          <div className="text-center py-20">
-            <h2 className="text-4xl font-bold font-secondary">Product</h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-xl">
-              One operational layer that quietly connects every part of your restaurant.
-            </p>
-          </div>
-        </section>
+      {/* Main content — section-gap creates physical gaps between each section */}
+      <main className="section-gap" style={{ paddingTop: '72px' }}>
+        {/* Hero Section */}
+        <Hero />
 
-        <section
-          id="pricing"
-          className="container min-h-screen flex items-center justify-center border-b border-gray-100"
-        >
-          <div className="text-center py-20">
-            <h2 className="text-4xl font-bold font-secondary">Pricing</h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-xl">
-              Simple, transparent pricing built around the size of your restaurant operations.
-            </p>
-          </div>
-        </section>
+        {/* Needle Section */}
+        <Needle />
 
-        <section
-          id="about"
-          className="container min-h-screen flex items-center justify-center"
-        >
-          <div className="text-center py-20">
-            <h2 className="text-4xl font-bold font-secondary">About</h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-xl">
-              Steward is built by operational specialists who understand the daily rhythm of hospitality.
-            </p>
-          </div>
-        </section>
+        {/* One System Section */}
+        <OneSystem />
+
+        {/* Day with Steward Section */}
+        <DayWithSteward />
+
+        {/* Built for Restaurants Section */}
+        <BuiltForRestaurants />
+
+        {/* Pricing Section */}
+        <Pricing />
+
+        {/* Early Partners Section */}
+        <EarlyPartners />
+
+        {/* FAQ Section */}
+        <FAQ />
+
+        {/* Final CTA Section */}
+        <FinalCTA />
       </main>
+
+      {/* Footer Component */}
+      <Footer />
     </div>
   );
 }

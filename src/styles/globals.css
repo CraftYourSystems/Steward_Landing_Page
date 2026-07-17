@@ -80,3 +80,42 @@ textarea {
   align-items: center;
   justify-content: center;
 }
+
+/* Section Spacing — guaranteed via vanilla CSS */
+.section-spacing {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+@media (min-width: 640px) {
+  .section-spacing {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+}
+
+/* Inter-section gap on <main> */
+.section-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+@media (min-width: 640px) {
+  .section-gap {
+    gap: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-gap {
+    gap: 160px;
+  }
+}
