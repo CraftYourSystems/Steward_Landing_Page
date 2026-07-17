@@ -1,0 +1,6 @@
+:root {
+  /* Animation Durations */
+  --duration-level-1: 150ms; /* Level 1: Instant feedback (100-150ms) */
+  --duration-level-2: 250ms; /* Level 2: Component transition (180-250ms) */
+  --duration-level-3: 500ms; /* Level 3: Page motion (300-500ms) */
+}

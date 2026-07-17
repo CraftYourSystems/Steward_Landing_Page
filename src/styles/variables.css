@@ -1,0 +1,27 @@
+:root {
+  /* Spacing Scale - 8px Base Grid (except xs) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  --spacing-5xl: 128px;
+
+  /* Layout Grid Gutters */
+  --grid-gutter-desktop: 32px;
+  --grid-gutter-tablet: 24px;
+  --grid-gutter-mobile: 16px;
+
+  /* Layout Grid Outer Margins */
+  --grid-margin-desktop: 64px;
+  --grid-margin-tablet: 32px;
+  --grid-margin-mobile: 16px;
+
+  /* Max Container Widths */
+  --container-max-primary: 1280px;
+  --container-max-reading: 720px;
+  --container-max-wide: 1440px;
+}
