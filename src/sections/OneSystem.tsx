@@ -48,7 +48,7 @@ export default function OneSystem() {
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
         <motion.p
           variants={itemVariants}
-          className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[32px]"
+          className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]"
         >
           One Connected System
         </motion.p>
@@ -56,7 +56,7 @@ export default function OneSystem() {
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700) */}
         <motion.h2
           variants={itemVariants}
-          className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[700px] mb-[48px]"
+          className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[700px] mb-[28px] mx-auto"
         >
           One system. <br className="hidden sm:inline" />
           Every part of your restaurant.
@@ -65,7 +65,7 @@ export default function OneSystem() {
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400) */}
         <motion.p
           variants={itemVariants}
-          className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[128px]"
+          className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[56px]"
         >
           From the moment a customer scans a QR code until the day's final summary is prepared, Steward keeps every operational workflow connected through one dependable system.
         </motion.p>
@@ -79,8 +79,8 @@ export default function OneSystem() {
             const isLast = idx === steps.length - 1;
             return (
               <div key={idx} className="flex flex-col lg:flex-row items-center w-full lg:w-auto">
-                {/* Step Box - Softer border, stronger typography, and larger padding */}
-                <div className="px-[40px] py-[26px] border border-steward-border rounded-md text-center bg-steward-surface min-w-[180px] font-primary text-base sm:text-lg font-semibold text-steward-text-primary tracking-tight">
+                {/* Step Box - Softer border, stronger typography, and responsive padding */}
+                <div className="px-[24px] py-[16px] sm:px-[32px] sm:py-[20px] lg:px-[40px] lg:py-[24px] border border-steward-border rounded-md text-center bg-steward-surface min-w-[180px] font-primary text-base sm:text-lg font-semibold text-steward-text-primary tracking-tight">
                   {step.label}
                 </div>
 
@@ -101,7 +101,7 @@ export default function OneSystem() {
         {/* Sub-label - Centered concluding note with generous top spacing */}
         <motion.p
           variants={itemVariants}
-          className="font-primary font-medium text-sm text-steward-text-muted text-center tracking-normal mt-[64px] pt-[24px] border-t border-steward-border w-[240px]"
+          className="font-primary font-medium text-sm text-steward-text-muted text-center tracking-normal mt-[48px] pt-[24px] border-t border-steward-border w-[240px]"
         >
           Powered quietly by Needle
         </motion.p>

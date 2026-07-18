@@ -77,17 +77,17 @@ export default function DayWithSteward() {
       <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[32px]">
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
           A Day with Steward
         </p>
 
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), narrower measure for editorial balance */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[720px] mb-[48px]">
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[720px] mb-[28px] mx-auto">
           From opening to closing, Steward works quietly in the background.
         </h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400) */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[128px]">
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[56px]">
           Every service brings hundreds of small operational decisions. 
           Steward connects them into one continuous workflow, helping your restaurant stay organized without demanding your attention.
         </p>
@@ -114,10 +114,10 @@ export default function DayWithSteward() {
                   }`}
                 >
                   {/* Content Card Side */}
-                  <div className="w-full lg:w-1/2 flex justify-start lg:justify-end px-[48px] lg:px-[64px] pl-[48px]">
+                  <div className="w-full lg:w-1/2 flex justify-start lg:justify-end pl-[48px] pr-[16px] lg:px-[64px]">
                     <div
                       tabIndex={0}
-                      className="w-full max-w-[460px] bg-steward-surface border border-steward-border rounded-md px-[40px] py-[56px] shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all"
+                      className="w-full max-w-[460px] bg-steward-surface border border-steward-border rounded-md px-[24px] py-[32px] sm:px-[32px] sm:py-[44px] lg:px-[40px] lg:py-[56px] shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all"
                     >
                       {/* Event Header - Time indicator (Time of day stands out as anchor) */}
                       <span className="font-primary font-semibold text-xs text-steward-text-primary uppercase tracking-wider block mb-[12px]">

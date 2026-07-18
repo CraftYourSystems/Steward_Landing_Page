@@ -117,7 +117,7 @@ export default function Navbar() {
         <div className="flex items-center gap-[24px] lg:gap-0">
           <a
             href={CONTACT_INFO.whatsappUrl}
-            className="touch-target flex items-center justify-center px-[24px] py-[12px] text-base font-medium font-primary border border-steward-text-primary bg-transparent rounded-md hover:bg-steward-text-primary hover:text-steward-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas text-steward-text-primary steward-interactive"
+            className="touch-target flex items-center justify-center px-[28px] py-[12px] text-base font-medium font-primary border border-steward-text-primary bg-transparent rounded-md hover:bg-steward-text-primary hover:text-steward-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas text-steward-text-primary steward-interactive"
           >
             Book a Demo
           </a>

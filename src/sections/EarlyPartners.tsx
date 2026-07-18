@@ -59,18 +59,18 @@ export default function EarlyPartners() {
       <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[24px]">
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
           Growing Together
         </p>
 
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[32px]">
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[28px] mx-auto">
           Built with restaurants. <br className="hidden sm:inline" />
           Improved through every partnership.
         </h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[96px]">
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[56px]">
           Every restaurant operates differently. By working closely with our early partners, Steward continues to evolve around real operational needs instead of assumptions.
         </p>
 
@@ -78,7 +78,7 @@ export default function EarlyPartners() {
         <motion.div
           variants={cardVariants}
           tabIndex={0}
-          className="w-full max-w-[520px] bg-steward-surface border border-steward-border rounded-md p-[56px] shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all duration-200 text-center mb-[96px]"
+          className="w-full max-w-[520px] bg-steward-surface border border-steward-border rounded-md p-[24px] sm:p-[40px] lg:p-[56px] shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all duration-200 text-center mb-[56px]"
         >
           {/* Monochromatic Logo Representation / Text */}
           <div className="w-[64px] h-[64px] rounded-full bg-steward-section flex items-center justify-center mx-auto mb-[24px] border border-steward-border font-secondary font-bold text-xl text-steward-text-primary">
@@ -105,7 +105,7 @@ export default function EarlyPartners() {
         {/* Progress Timeline milestone row */}
         <motion.div
           variants={timelineVariants}
-          className="w-full max-w-[800px] flex flex-col md:flex-row items-center justify-center gap-[24px] md:gap-[16px] border-t border-steward-border pt-[48px]"
+          className="w-full max-w-[800px] flex flex-col md:flex-row items-center justify-center gap-[24px] md:gap-[16px] border-t border-steward-border pt-[40px]"
         >
           {milestones.map((milestone, idx) => {
             const isLast = idx === milestones.length - 1;

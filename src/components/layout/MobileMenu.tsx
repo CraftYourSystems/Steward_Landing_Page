@@ -130,7 +130,7 @@ export default function MobileMenu({ isOpen, onClose, links, activeSection }: Mo
         <a
           href={CONTACT_INFO.whatsappUrl}
           onClick={onClose}
-          className="touch-target flex items-center justify-center px-6 py-3 font-semibold font-primary bg-steward-accent text-steward-canvas border border-steward-accent rounded-md hover:bg-steward-accent-hover hover:border-steward-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive"
+          className="touch-target flex items-center justify-center px-[36px] py-[16px] font-semibold font-primary bg-steward-accent text-steward-canvas border border-steward-accent rounded-md hover:bg-steward-accent-hover hover:border-steward-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive"
         >
           Book a Demo
         </a>

@@ -90,17 +90,17 @@ export default function Pricing() {
       <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[32px]">
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
           Pricing
         </p>
 
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[48px]">
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[28px] mx-auto">
           Simple pricing for growing restaurants.
         </h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[128px]">
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[56px]">
           Every restaurant is different. We'll recommend the right Steward setup based on your operations, team size, and number of locations. 
           No hidden costs. No unnecessary modules. Only what your restaurant needs.
         </p>
@@ -115,7 +115,7 @@ export default function Pricing() {
               key={idx}
               variants={cardVariants}
               tabIndex={0}
-              className="bg-steward-surface rounded-md px-[32px] lg:px-[40px] py-[72px] flex flex-col justify-between border border-steward-border shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas"
+              className="bg-steward-surface rounded-md px-[24px] py-[32px] sm:px-[32px] sm:py-[48px] lg:px-[40px] lg:py-[56px] flex flex-col justify-between border border-steward-border shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas"
             >
               <div>
                 {/* Plan Name */}
@@ -150,7 +150,7 @@ export default function Pricing() {
               {/* Action Button - Touch target >= 44px */}
               <a
                 href={plan.ctaLink}
-                className={`touch-target flex items-center justify-center w-full px-[32px] py-[14px] text-base font-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive ${
+                className={`touch-target flex items-center justify-center w-full px-[36px] py-[16px] text-base font-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive ${
                   plan.isHighlighted
                     ? 'font-semibold bg-steward-accent text-steward-canvas border border-steward-accent rounded-md hover:bg-steward-accent-hover hover:border-steward-accent-hover'
                     : 'font-medium border border-steward-text-primary text-steward-text-primary bg-transparent rounded-md hover:bg-steward-text-primary hover:text-steward-canvas'

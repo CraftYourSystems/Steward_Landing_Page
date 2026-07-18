@@ -67,17 +67,17 @@ export default function Needle() {
       <div className="container max-w-[900px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[32px]">
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
           Meet Needle
         </p>
 
         {/* Heading - Font: Newsreader (Secondary), Size: Display (scaled down for calm balance), Weight: Bold (700) */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[700px] mb-[48px]">
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[700px] mb-[28px] mx-auto">
           Your restaurant's operational voice.
         </h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400) */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[128px]">
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[56px]">
           Needle reviews what Steward already knows and prepares a clear operational briefing before your day begins.
           It communicates facts, not assumptions. It exists to help you understand your restaurant with confidence.
         </p>
@@ -85,7 +85,7 @@ export default function Needle() {
         {/* Primary Component: Editorial Briefing Card */}
         <motion.div
           variants={cardVariants}
-          className="w-full max-w-[560px] bg-steward-surface border border-steward-border rounded-md p-[64px] shadow-steward-sm mb-[56px]"
+          className="w-full max-w-[560px] bg-steward-surface border border-steward-border rounded-md px-[24px] py-[32px] sm:px-[40px] sm:py-[48px] lg:px-[56px] lg:py-[64px] shadow-steward-sm mb-[48px]"
         >
           {/* Greeting - Font: Newsreader (Secondary), reduced emphasis (text-xl font-medium) */}
           <h3 className="font-secondary font-medium text-xl text-steward-text-primary mb-[24px]">

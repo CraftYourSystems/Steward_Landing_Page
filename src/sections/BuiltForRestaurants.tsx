@@ -66,17 +66,17 @@ export default function BuiltForRestaurants() {
       <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[32px]">
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
           Built with Restaurants in Mind
         </p>
 
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[48px]">
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[28px] mx-auto">
           Designed around restaurant operations—not software.
         </h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[128px]">
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[56px]">
           Restaurants move quickly. Orders change. Teams coordinate constantly. Customers expect speed. 
           Steward is designed around these realities, providing operational clarity without adding unnecessary complexity.
         </p>
@@ -93,7 +93,7 @@ export default function BuiltForRestaurants() {
                 key={idx}
                 variants={cardVariants}
                 tabIndex={0}
-                className={`bg-steward-surface rounded-md px-[40px] py-[64px] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas ${
+                className={`bg-steward-surface rounded-md px-[24px] py-[32px] sm:px-[32px] sm:py-[48px] lg:px-[40px] lg:py-[56px] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas ${
                   isCore
                     ? 'border border-steward-border shadow-steward-md hover:border-steward-border/80 hover:bg-steward-hover lg:scale-[1.02]'
                     : 'border border-steward-border shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover'
