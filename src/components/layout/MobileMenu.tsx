@@ -75,66 +75,85 @@ export default function MobileMenu({ isOpen, onClose, links, activeSection }: Mo
   };
 
   return (
-    <motion.div
-      id="mobile-nav-overlay"
-      ref={overlayRef}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Navigation Menu"
-      className="fixed inset-0 z-50 flex flex-col bg-steward-canvas"
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={menuVariants}
-      transition={transition}
-    >
-      {/* Menu Header */}
-      <div className="flex h-[72px] items-center justify-between px-4 sm:px-8">
-        <span className="text-xl font-bold font-secondary text-steward-text-primary">Steward</span>
-        <button
-          ref={closeButtonRef}
-          onClick={onClose}
-          aria-label="Close menu"
-          className="touch-target flex items-center justify-center text-steward-text-secondary hover:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md"
-        >
-          <X className="w-6 h-6" />
-        </button>
-      </div>
+    <>
+      {/* Backdrop overlay */}
+      <motion.div
+        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
-      {/* Menu Links */}
-      <div className="flex flex-col items-center justify-center flex-1 space-y-8 py-12">
-        <ul className="flex flex-col items-center space-y-6">
-          {links.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
-            return (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={onClose}
-                  aria-current={isActive ? 'page' : undefined}
-                  className={`touch-target flex items-center text-2xl font-medium font-primary transition-opacity duration-150 hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md ${
-                    isActive ? 'font-semibold text-steward-text-primary' : 'text-steward-text-secondary'
-                  }`}
-                >
-                  <span>{link.label}</span>
-                  {isActive && (
-                    <span className="inline-block w-[2px] h-[2px] bg-steward-accent ml-1.5 align-baseline mb-[4px]" aria-hidden="true" />
-                  )}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+      {/* Menu Panel */}
+      <motion.div
+        id="mobile-nav-overlay"
+        ref={overlayRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation Menu"
+        className="fixed top-[80px] right-4 left-4 sm:left-auto sm:right-6 sm:w-[320px] z-50 rounded-2xl border border-white/10 shadow-2xl"
+        style={{ backgroundColor: 'hsl(24, 6%, 12%)' }}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={menuVariants}
+        transition={transition}
+      >
+        {/* Menu Header */}
+        <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-white/10">
+          <span className="text-lg font-bold font-secondary text-steward-text-primary">Menu</span>
+          <button
+            ref={closeButtonRef}
+            onClick={onClose}
+            aria-label="Close menu"
+            className="touch-target flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 text-steward-text-secondary hover:bg-white/10 hover:text-steward-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus transition-colors duration-150"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Menu Links */}
+        <div className="flex flex-col px-4 py-3">
+          <ul className="flex flex-col">
+            {links.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={onClose}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`flex items-center gap-2 px-3 py-3 rounded-xl text-lg font-medium font-primary transition-all duration-150 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus rounded-md ${
+                      isActive
+                        ? 'font-semibold text-steward-text-primary bg-white/5'
+                        : 'text-steward-text-secondary'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-steward-accent" aria-hidden="true" />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         {/* Primary CTA */}
-        <a
-          href={CONTACT_INFO.whatsappUrl}
-          onClick={onClose}
-          className="touch-target flex items-center justify-center px-[36px] py-[16px] font-semibold font-primary bg-steward-accent text-steward-canvas border border-steward-accent rounded-md hover:bg-steward-accent-hover hover:border-steward-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive"
-        >
-          Book a Demo
-        </a>
-      </div>
-    </motion.div>
+        <div className="px-4 pb-5 pt-2">
+          <a
+            href={CONTACT_INFO.whatsappUrl}
+            onClick={onClose}
+            className="touch-target flex items-center justify-center w-full px-[28px] py-[14px] font-semibold font-primary bg-steward-accent text-steward-canvas border border-steward-accent rounded-xl hover:bg-steward-accent-hover hover:border-steward-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive text-base"
+          >
+            Book a Demo
+          </a>
+        </div>
+      </motion.div>
+    </>
   );
 }
