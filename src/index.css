@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+@theme {
+  --color-steward-canvas: var(--color-steward-canvas);
+  --color-steward-section: var(--color-steward-section);
+  --color-steward-surface: var(--color-steward-surface);
+  --color-steward-elevated: var(--color-steward-elevated);
+  
+  --color-steward-text-primary: var(--color-steward-text-primary);
+  --color-steward-text-secondary: var(--color-steward-text-secondary);
+  --color-steward-text-muted: var(--color-steward-text-muted);
+  --color-steward-text-disabled: var(--color-steward-text-disabled);
+  
+  --color-steward-accent: var(--color-steward-accent);
+  --color-steward-accent-hover: var(--color-steward-accent-hover);
+  
+  --color-steward-hover: var(--color-steward-hover);
+  --color-steward-active: var(--color-steward-active);
+  --color-steward-focus: var(--color-steward-focus);
+  
+  --color-steward-border: var(--color-steward-border);
+  
+  --shadow-steward-sm: var(--steward-shadow-sm);
+  --shadow-steward-md: var(--steward-shadow-md);
+  
+  --transition-duration-steward-fast: var(--steward-duration-fast);
+  --transition-duration-steward-normal: var(--steward-duration-normal);
+  --transition-duration-steward-slow: var(--steward-duration-slow);
+  --transition-timing-function-steward-standard: var(--steward-ease-standard);
+  --transition-timing-function-steward-emphasized: var(--steward-ease-emphasized);
+}
+
 @import "./styles/variables.css";
 @import "./styles/typography.css";
 @import "./styles/animations.css";

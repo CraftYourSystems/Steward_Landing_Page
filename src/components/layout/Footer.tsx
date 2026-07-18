@@ -1,8 +1,10 @@
+import { CONTACT_INFO } from '../../config/contact';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-white border-t border-gray-100 pt-[120px] pb-[64px]" aria-label="Site Footer">
+    <footer className="w-full bg-steward-canvas border-t border-steward-border pt-[120px] pb-[64px]" aria-label="Site Footer">
       <div className="container max-w-[1200px] mx-auto px-4 sm:px-6">
         
         {/* Main Grid: 5 Columns on Desktop, Stack on Mobile */}
@@ -11,32 +13,32 @@ export default function Footer() {
           {/* Column 1: Brand Info (Spans 2 columns on large screens for layout balance) */}
           <div className="lg:col-span-2 max-w-[320px]">
             {/* Logo - Newsreader serif font */}
-            <span className="font-secondary font-bold text-2xl text-black block mb-[16px]">
+            <span className="font-secondary font-bold text-2xl text-steward-text-primary block mb-[16px]">
               Steward
             </span>
-            <p className="font-primary font-regular text-sm text-gray-500 leading-[1.6]">
+            <p className="font-primary font-regular text-sm text-steward-text-secondary leading-[1.6]">
               Steward is a restaurant operating system designed to bring clarity to everyday operations through one connected platform.
             </p>
           </div>
 
           {/* Column 2: Product Links */}
           <nav aria-label="Product Navigation">
-            <span className="font-primary font-semibold text-xs text-black uppercase tracking-wider block mb-[20px]">
+            <span className="font-primary font-semibold text-xs text-steward-text-primary uppercase tracking-wider block mb-[20px]">
               Product
             </span>
             <ul className="space-y-[12px]">
               <li>
-                <a href="#product" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#product" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Product
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#pricing" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#book-a-demo" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href={CONTACT_INFO.whatsappUrl} className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Book a Demo
                 </a>
               </li>
@@ -45,22 +47,22 @@ export default function Footer() {
 
           {/* Column 3: Company Links */}
           <nav aria-label="Company Navigation">
-            <span className="font-primary font-semibold text-xs text-black uppercase tracking-wider block mb-[20px]">
+            <span className="font-primary font-semibold text-xs text-steward-text-primary uppercase tracking-wider block mb-[20px]">
               Company
             </span>
             <ul className="space-y-[12px]">
               <li>
-                <a href="#about" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#about" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   About
                 </a>
               </li>
               <li>
-                <a href="#early-partners" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#early-partners" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Early Partners
                 </a>
               </li>
               <li>
-                <a href="#contact" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href={`mailto:${CONTACT_INFO.email}`} className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Contact
                 </a>
               </li>
@@ -69,22 +71,22 @@ export default function Footer() {
 
           {/* Column 4: Resources & Legal */}
           <nav aria-label="Resources Navigation">
-            <span className="font-primary font-semibold text-xs text-black uppercase tracking-wider block mb-[20px]">
+            <span className="font-primary font-semibold text-xs text-steward-text-primary uppercase tracking-wider block mb-[20px]">
               Resources
             </span>
             <ul className="space-y-[12px]">
               <li>
-                <a href="#faq" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#faq" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Frequently Asked Questions
                 </a>
               </li>
               <li>
-                <a href="#privacy" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#privacy" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#terms" className="touch-target font-primary font-regular text-sm text-gray-500 hover:text-black hover:underline transition-all">
+                <a href="#terms" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Terms of Service
                 </a>
               </li>
@@ -94,29 +96,41 @@ export default function Footer() {
         </div>
 
         {/* Contact Info Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-gray-100 py-[24px] gap-[16px]">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-[16px] sm:gap-[32px]">
-            <span className="font-primary text-sm text-gray-500 font-regular">
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between border-t border-steward-border py-[24px] gap-[16px]">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-[16px] sm:gap-[32px] flex-wrap">
+            <span className="font-primary text-sm text-steward-text-secondary font-regular">
               Email:{' '}
-              <a href="mailto:hello@steward.so" className="text-black hover:underline font-medium">
-                hello@steward.so
+              <a href={`mailto:${CONTACT_INFO.email}`} className="text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                {CONTACT_INFO.email}
               </a>
             </span>
-            <span className="font-primary text-sm text-gray-500 font-regular">
-              Location: <span className="text-black font-medium">Hyderabad, India</span>
+            <span className="font-primary text-sm text-steward-text-secondary font-regular">
+              Phone:{' '}
+              <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                {CONTACT_INFO.phone}
+              </a>
+            </span>
+            <span className="font-primary text-sm text-steward-text-secondary font-regular">
+              WhatsApp:{' '}
+              <a href={CONTACT_INFO.whatsappUrl} className="text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                Message Us
+              </a>
+            </span>
+            <span className="font-primary text-sm text-steward-text-secondary font-regular">
+              Location: <span className="text-steward-text-primary font-medium">{CONTACT_INFO.location}</span>
             </span>
           </div>
-          <span className="font-primary text-xs text-gray-400 font-regular">
-            Version 1.0
+          <span className="font-primary text-xs text-steward-text-muted font-regular">
+            Version {CONTACT_INFO.version}
           </span>
         </div>
 
         {/* Bottom Bar: Copyright */}
-        <div className="border-t border-gray-100 pt-[24px] flex flex-col sm:flex-row items-center justify-between gap-[12px]">
-          <span className="font-primary text-xs text-gray-500 font-regular">
+        <div className="border-t border-steward-border pt-[24px] flex flex-col sm:flex-row items-center justify-between gap-[12px]">
+          <span className="font-primary text-xs text-steward-text-secondary font-regular">
             &copy; {currentYear} Steward.
           </span>
-          <span className="font-primary text-xs text-gray-400 font-regular">
+          <span className="font-primary text-xs text-steward-text-muted font-regular">
             Built thoughtfully for restaurants.
           </span>
         </div>

@@ -12,7 +12,7 @@ import Footer from './components/layout/Footer';
 
 export default function App() {
   return (
-    <div className="font-primary text-gray-900 bg-white min-h-screen">
+    <div className="font-primary text-steward-text-secondary bg-steward-canvas min-h-screen">
       {/* Navigation Component */}
       <Navbar />
 

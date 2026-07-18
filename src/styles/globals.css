@@ -13,12 +13,16 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  background-color: var(--color-steward-canvas);
+  color: var(--color-steward-text-secondary);
 }
 
 body {
   width: 100%;
   min-height: 100vh;
   line-height: 1.7;
+  background-color: var(--color-steward-canvas);
+  color: var(--color-steward-text-secondary);
 }
 
 /* Accessible touch target default */
@@ -117,5 +121,38 @@ textarea {
 @media (min-width: 1024px) {
   .section-gap {
     gap: 160px;
+  }
+}
+
+/* steward-interactive Utility Class */
+.steward-interactive {
+  transition: transform var(--steward-duration-fast) var(--steward-ease-standard),
+              background-color var(--steward-duration-fast) var(--steward-ease-standard),
+              border-color var(--steward-duration-fast) var(--steward-ease-standard),
+              color var(--steward-duration-fast) var(--steward-ease-standard),
+              box-shadow var(--steward-duration-fast) var(--steward-ease-standard);
+}
+
+.steward-interactive:hover {
+  box-shadow: var(--steward-shadow-sm);
+}
+
+.steward-interactive:active {
+  transform: scale(0.98);
+}
+
+/* Reduced Motion Settings conforming to user accessibility constraints */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+  .steward-interactive:active {
+    transform: none !important;
   }
 }

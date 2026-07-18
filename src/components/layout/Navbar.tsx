@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import MobileMenu from './MobileMenu';
+import { CONTACT_INFO } from '../../config/contact';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,7 +46,7 @@ export default function Navbar() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-50% 0px -50% 0px', // Trigger active state when section takes up the middle of screen
+      rootMargin: '-30% 0px -60% 0px',
       threshold: 0
     };
 
@@ -67,10 +68,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 h-[72px] transition-all duration-200 ${
+      id="navbar-header"
+      className={`fixed top-0 left-0 right-0 z-50 h-[72px] border-b transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200'
-          : 'bg-transparent'
+          ? 'bg-steward-canvas/90 backdrop-blur-md border-steward-border shadow-steward-sm'
+          : 'bg-transparent border-transparent'
       }`}
     >
       <nav
@@ -79,9 +81,9 @@ export default function Navbar() {
       >
         {/* Left: Logo placeholder */}
         <a
-          href="#"
+          href="#hero"
           aria-label="Steward Home"
-          className="touch-target flex items-center text-xl font-bold font-secondary tracking-tight hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+          className="touch-target flex items-center text-xl font-bold font-secondary tracking-tight hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus text-steward-text-primary"
         >
           Steward
         </a>
@@ -96,11 +98,14 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`touch-target flex items-center text-base font-medium font-primary transition-opacity duration-150 hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${
-                      isActive ? 'underline decoration-1 underline-offset-4 font-semibold text-black' : 'text-gray-600'
+                    className={`touch-target flex items-center text-base font-medium font-primary transition-opacity duration-150 hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md ${
+                      isActive ? 'font-semibold text-steward-text-primary' : 'text-steward-text-secondary'
                     }`}
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="inline-block w-[2px] h-[2px] bg-steward-accent ml-1.5 align-baseline mb-[3px]" aria-hidden="true" />
+                    )}
                   </a>
                 </li>
               );
@@ -111,8 +116,8 @@ export default function Navbar() {
         {/* Right: Desktop CTA & Mobile controls */}
         <div className="flex items-center gap-[24px] lg:gap-0">
           <a
-            href="#book-a-demo"
-            className="touch-target flex items-center justify-center px-[24px] py-[12px] text-base font-medium font-primary border border-black hover:bg-black hover:text-white transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            href={CONTACT_INFO.whatsappUrl}
+            className="touch-target flex items-center justify-center px-[24px] py-[12px] text-base font-medium font-primary border border-steward-text-primary bg-transparent rounded-md hover:bg-steward-text-primary hover:text-steward-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas text-steward-text-primary steward-interactive"
           >
             Book a Demo
           </a>
@@ -123,7 +128,7 @@ export default function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav-overlay"
             aria-label="Toggle menu"
-            className="lg:hidden touch-target flex items-center justify-center text-gray-900 hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            className="lg:hidden touch-target flex items-center justify-center text-steward-text-primary hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md"
           >
             <Menu className="w-6 h-6" />
           </button>

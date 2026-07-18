@@ -56,27 +56,27 @@ export default function FAQ() {
     <section
       id="faq"
       aria-label="Frequently Asked Questions"
-      className="w-full bg-white section-spacing flex flex-col items-center justify-center"
+      className="w-full bg-steward-section section-spacing flex flex-col items-center justify-center"
     >
       <div className="container max-w-[900px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-gray-600 mb-[24px]">
+        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[32px]">
           Frequently Asked Questions
         </p>
 
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-black text-center max-w-[680px] mb-[32px]">
+        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[48px]">
           Everything you might be wondering.
         </h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-gray-700 text-center max-w-[640px] mb-[96px]">
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[128px]">
           If you don't see your question here, we're happy to answer it during a demo.
         </p>
 
         {/* Accordion List */}
-        <div className="w-full border-t border-gray-100 divide-y divide-gray-100">
+        <div className="w-full border-t border-steward-border divide-y divide-steward-border">
           {faqs.map((faq, idx) => {
             const isOpen = activeIndex === idx;
             const panelId = `faq-panel-${idx}`;
@@ -89,15 +89,15 @@ export default function FAQ() {
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => toggleFAQ(idx)}
-                  className="touch-target w-full flex items-center justify-between py-[32px] text-left font-primary font-semibold text-base sm:text-lg text-black hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded transition-colors"
+                  className="touch-target w-full flex items-center justify-between py-[32px] text-left font-primary font-semibold text-base sm:text-lg text-steward-text-primary hover:text-steward-text-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md transition-colors"
                 >
                   <span>{faq.question}</span>
                   {/* Subtle Disclosure Arrow with rotation */}
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] as const }}
                   >
-                    <ChevronDown className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                    <ChevronDown className="w-5 h-5 text-steward-text-muted" aria-hidden="true" />
                   </motion.div>
                 </button>
 
@@ -111,10 +111,10 @@ export default function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] as const }}
                       className="overflow-hidden"
                     >
-                      <p className="font-primary font-regular text-sm sm:text-base text-gray-700 leading-[1.7] pb-[24px]">
+                      <p className="font-primary font-regular text-sm sm:text-base text-steward-text-secondary leading-[1.7] pb-[24px]">
                         {faq.answer}
                       </p>
                     </motion.div>

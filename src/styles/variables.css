@@ -24,4 +24,35 @@
   --container-max-primary: 1280px;
   --container-max-reading: 720px;
   --container-max-wide: 1440px;
+
+  /* Surface Hierarchy (Warm Deep Graphite, Matte Ceramic) */
+  --color-steward-canvas: hsl(24, 5%, 8%);
+  --color-steward-section: hsl(24, 5%, 10%);
+  --color-steward-surface: hsl(24, 5%, 12%);
+  --color-steward-elevated: hsl(24, 5%, 15%);
+
+  /* Typography Roles (Soft Ivory & Muted Warm Gray) */
+  --color-steward-text-primary: hsl(35, 12%, 88%);
+  --color-steward-text-secondary: hsl(30, 6%, 68%);
+  --color-steward-text-muted: hsl(30, 4%, 48%);
+  --color-steward-text-disabled: hsl(30, 4%, 32%);
+
+  /* Accent (Brushed Warm Gold) & Interactive Tokens */
+  --color-steward-accent: hsl(38, 40%, 60%);
+  --color-steward-accent-hover: hsl(38, 45%, 65%);
+  --color-steward-hover: hsl(24, 5%, 18%);
+  --color-steward-active: hsl(24, 5%, 22%);
+  --color-steward-focus: hsl(38, 40%, 60%);
+
+  /* Borders & Shadows (Subtle Ceramic Separation) */
+  --color-steward-border: hsl(24, 5%, 16%);
+  --steward-shadow-sm: 0 1px 2px rgba(0,0,0,0.18);
+  --steward-shadow-md: 0 2px 6px rgba(0,0,0,0.12);
+
+  /* Motion Placeholders */
+  --steward-duration-fast: 150ms;
+  --steward-duration-normal: 300ms;
+  --steward-duration-slow: 450ms;
+  --steward-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --steward-ease-emphasized: cubic-bezier(0.15, 0.85, 0.35, 1);
 }
