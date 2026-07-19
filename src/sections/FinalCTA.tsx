@@ -6,19 +6,21 @@ export default function FinalCTA() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.2
       }
     }
   };
 
   const fadeVariants = {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 0, scale: 0.95, y: 20, filter: 'blur(12px)' },
     visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
+      filter: 'blur(0px)',
       transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const
+        duration: 1.2,
+        ease: [0.15, 0.85, 0.35, 1]
       }
     }
   };
@@ -69,7 +71,11 @@ export default function FinalCTA() {
           {/* Primary CTA - Prominent padding and font-semibold, Touch target >= 44px */}
           <a
             href={CONTACT_INFO.whatsappUrl}
-            className="touch-target flex items-center justify-center w-full sm:w-auto px-[40px] py-[16px] text-base font-semibold font-primary bg-steward-accent text-steward-canvas border border-steward-accent rounded-md hover:bg-steward-accent-hover hover:border-steward-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive"
+            className="touch-target flex items-center justify-center w-full sm:w-auto px-[40px] py-[16px] text-base font-semibold font-primary text-white border-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive hover:brightness-110"
+            style={{
+              background: 'linear-gradient(135deg, #A0A0A0 0%, #404040 50%, #050505 100%)',
+              boxShadow: '0 4px 20px rgba(160, 160, 160, 0.15)'
+            }}
           >
             Book a Demo
           </a>

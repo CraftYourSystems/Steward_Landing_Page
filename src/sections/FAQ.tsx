@@ -52,31 +52,51 @@ export default function FAQ() {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } }
+  };
+
+  const fadeVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20, filter: 'blur(12px)' },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0, 
+      filter: 'blur(0px)', 
+      transition: { duration: 1.2, ease: [0.15, 0.85, 0.35, 1] } 
+    }
+  };
+
   return (
-    <section
+    <motion.section
       id="faq"
       aria-label="Frequently Asked Questions"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-10%' }}
+      variants={containerVariants}
       className="w-full bg-steward-section section-spacing flex flex-col items-center justify-center"
     >
       <div className="container max-w-[900px] flex flex-col items-center px-4 sm:px-6">
         
         {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
+        <motion.p variants={fadeVariants} className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
           Frequently Asked Questions
-        </p>
+        </motion.p>
 
         {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
-        <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[28px] mx-auto">
+        <motion.h2 variants={fadeVariants} className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[28px] mx-auto">
           Everything you might be wondering.
-        </h2>
+        </motion.h2>
 
         {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[56px]">
+        <motion.p variants={fadeVariants} className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[56px]">
           If you don't see your question here, we're happy to answer it during a demo.
-        </p>
+        </motion.p>
 
         {/* Accordion List */}
-        <div className="w-full border-t border-steward-border divide-y divide-steward-border">
+        <motion.div variants={fadeVariants} className="w-full border-t border-steward-border divide-y divide-steward-border">
           {faqs.map((faq, idx) => {
             const isOpen = activeIndex === idx;
             const panelId = `faq-panel-${idx}`;
@@ -123,9 +143,9 @@ export default function FAQ() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

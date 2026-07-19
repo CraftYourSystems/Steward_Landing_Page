@@ -5,16 +5,18 @@ function HeroContent() {
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.2 }
+      transition: { staggerChildren: 0.25 }
     }
   };
 
   const fadeVariants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, y: 30, filter: 'blur(12px)', scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: [0.15, 0.85, 0.35, 1] }
+      filter: 'blur(0px)',
+      scale: 1,
+      transition: { duration: 1.2, ease: [0.15, 0.85, 0.35, 1] }
     }
   };
 
@@ -42,7 +44,7 @@ function HeroContent() {
         Your restaurant's{' '}
         <span
           className="bg-clip-text text-transparent"
-          style={{ backgroundImage: 'linear-gradient(135deg, #FFFFFF 0%, #888888 50%, #222222 100%)' }}
+          style={{ backgroundImage: 'linear-gradient(135deg, #A0A0A0 0%, #404040 50%, #050505 100%)' }}
         >
           true north.
         </span>
@@ -72,9 +74,9 @@ function CTAGroup() {
         href={CONTACT_INFO.whatsappUrl}
         className="touch-target flex items-center justify-center w-full sm:w-auto px-[36px] py-[14px] text-sm font-semibold font-primary rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
         style={{
-          background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
-          color: '#0A0A0F',
-          boxShadow: '0 4px 20px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.05)',
+          background: 'linear-gradient(135deg, #A0A0A0 0%, #404040 50%, #050505 100%)',
+          color: '#FFFFFF',
+          boxShadow: '0 4px 20px rgba(160, 160, 160, 0.15), 0 0 60px rgba(160, 160, 160, 0.05)',
         }}
       >
         Set Course

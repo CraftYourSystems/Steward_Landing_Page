@@ -121,10 +121,11 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <a
             href={CONTACT_INFO.whatsappUrl}
-            className="hidden lg:flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold font-primary text-[#0A0A0F] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="hidden lg:flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold font-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             style={{
-              background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
-              boxShadow: '0 2px 12px rgba(255, 255, 255, 0.25)',
+              background: 'linear-gradient(135deg, #A0A0A0 0%, #404040 50%, #050505 100%)',
+              color: '#FFFFFF',
+              boxShadow: '0 2px 12px rgba(160, 160, 160, 0.25)',
             }}
           >
             Book a Demo
@@ -220,10 +221,11 @@ export default function Navbar() {
                 <a
                   href={CONTACT_INFO.whatsappUrl}
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-center w-full px-6 py-3 font-semibold font-primary text-[#0A0A0F] rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all text-sm"
+                  className="flex items-center justify-center w-full px-6 py-3 font-semibold font-primary rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all text-sm"
                   style={{
-                    background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
-                    boxShadow: '0 2px 12px rgba(255, 255, 255, 0.25)',
+                    background: 'linear-gradient(135deg, #A0A0A0 0%, #404040 50%, #050505 100%)',
+                    color: '#FFFFFF',
+                    boxShadow: '0 2px 12px rgba(160, 160, 160, 0.25)',
                   }}
                 >
                   Book a Demo

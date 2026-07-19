@@ -15,17 +15,19 @@ export default function OneSystem() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.9, y: 20, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 100, damping: 15 }
     }
   };
 

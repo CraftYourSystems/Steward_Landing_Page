@@ -46,26 +46,27 @@ const plans = [
 
 export default function Pricing() {
   const sectionVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
-      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const gridVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+      transition: { staggerChildren: 0.2, delayChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.85, y: 30, filter: 'blur(12px)' },
     visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.15, 0.85, 0.35, 1] as const }
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 90, damping: 14 }
     }
   };
 
@@ -150,11 +151,15 @@ export default function Pricing() {
               {/* Action Button */}
               <a
                 href={plan.ctaLink}
-                className={`touch-target flex items-center justify-center w-full px-[36px] py-[16px] text-base font-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all duration-200 relative z-10 ${
+                className={`touch-target flex items-center justify-center w-full px-[36px] py-[16px] text-base font-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all duration-200 relative z-10 ${
                   plan.isHighlighted
-                    ? 'font-semibold bg-steward-accent text-steward-canvas rounded-lg shadow-md hover:bg-steward-accent-hover hover:shadow-lg'
+                    ? 'font-semibold text-white rounded-lg hover:brightness-110'
                     : 'font-medium border border-steward-border text-steward-text-primary bg-steward-canvas rounded-lg hover:border-steward-accent-secondary hover:text-steward-accent-secondary shadow-sm'
                 }`}
+                style={plan.isHighlighted ? {
+                  background: 'linear-gradient(135deg, #A0A0A0 0%, #404040 50%, #050505 100%)',
+                  boxShadow: '0 4px 20px rgba(160, 160, 160, 0.15)',
+                } : undefined}
               >
                 {plan.ctaText}
               </a>

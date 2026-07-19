@@ -10,36 +10,38 @@ const links = [
 
 export default function Needle() {
   const sectionVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
-      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    hidden: { opacity: 0, scale: 0.85, y: 30, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const, delay: 0.2 }
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 100, damping: 15, delay: 0.3 }
     }
   };
 
   const listVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.15, delayChildren: 0.4 }
+      transition: { staggerChildren: 0.2, delayChildren: 0.5 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -10 },
+    hidden: { opacity: 0, y: 20, filter: 'blur(8px)', scale: 0.95 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: { duration: 0.4, ease: 'easeOut' as const }
+      y: 0,
+      filter: 'blur(0px)',
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] }
     }
   };
 

@@ -11,38 +11,30 @@ const milestones = [
 export default function EarlyPartners() {
   // Motion configurations following Level 2/3 timing rules
   const sectionVariants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 0, scale: 0.95, y: 20, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
-      transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const,
-        delay: 0.15
-      }
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 100, damping: 15, delay: 0.15 }
     }
   };
 
   const timelineVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, scale: 0.95, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const,
-        delay: 0.3
-      }
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 100, damping: 15, delay: 0.3 }
     }
   };
 
