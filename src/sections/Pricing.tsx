@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Compass, Navigation2 } from 'lucide-react';
 
 const plans = [
   {
@@ -11,7 +12,7 @@ const plans = [
       'Payments',
       'Basic Daily Reports'
     ],
-    ctaText: 'Book a Demo',
+    ctaText: 'View Details',
     ctaLink: '#book-a-demo'
   },
   {
@@ -24,9 +25,9 @@ const plans = [
       'Operational Reporting',
       'Priority Support'
     ],
-    ctaText: 'Book a Demo',
+    ctaText: 'Set Course',
     ctaLink: '#book-a-demo',
-    isHighlighted: true // Growth receives a very subtle emphasis
+    isHighlighted: true // Growth receives North/Red emphasis
   },
   {
     name: 'Enterprise',
@@ -44,36 +45,27 @@ const plans = [
 ];
 
 export default function Pricing() {
-  // Motion configurations following Level 2/3 timing rules
   const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const
-      }
+      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }
     }
   };
 
   const gridVariants = {
     hidden: {},
     visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const
-      }
+      transition: { duration: 0.6, ease: [0.15, 0.85, 0.35, 1] as const }
     }
   };
 
@@ -85,27 +77,29 @@ export default function Pricing() {
       whileInView="visible"
       viewport={{ once: true, margin: '-10%' }}
       variants={sectionVariants}
-      className="w-full bg-steward-section section-spacing flex flex-col items-center justify-center"
+      className="w-full bg-steward-section section-spacing flex flex-col items-center justify-center relative overflow-hidden"
     >
-      <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
+      <div className="container max-w-[1200px] flex flex-col items-center px-4 sm:px-6 relative z-10">
         
-        {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <p className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]">
-          Pricing
-        </p>
+        {/* Eyebrow */}
+        <div className="flex items-center justify-center gap-3 mb-[20px]">
+          <Compass className="w-4 h-4 text-steward-accent-secondary" />
+          <p className="font-primary font-medium text-sm sm:text-base tracking-widest uppercase text-steward-accent-secondary">
+            Navigation Plans
+          </p>
+        </div>
 
-        {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700), constrained width for editorial balance */}
+        {/* Heading */}
         <h2 className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[680px] mb-[28px] mx-auto">
-          Simple pricing for growing restaurants.
+          Scale your restaurant with precision.
         </h2>
 
-        {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400), narrower measure for scanability */}
-        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[56px]">
-          Every restaurant is different. We'll recommend the right Steward setup based on your operations, team size, and number of locations. 
-          No hidden costs. No unnecessary modules. Only what your restaurant needs.
+        {/* Supporting Copy */}
+        <p className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[640px] mb-[64px]">
+          Every restaurant is different. We'll recommend the right Steward setup based on your operations, team size, and number of locations. No hidden costs. No unnecessary modules.
         </p>
 
-        {/* Pricing Cards Grid - 3-column on Desktop/Tablet, 1-col on Mobile */}
+        {/* Pricing Cards Grid */}
         <motion.div
           variants={gridVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-[24px] lg:gap-[32px] w-full items-stretch"
@@ -115,11 +109,17 @@ export default function Pricing() {
               key={idx}
               variants={cardVariants}
               tabIndex={0}
-              className="bg-steward-surface rounded-md px-[24px] py-[32px] sm:px-[32px] sm:py-[48px] lg:px-[40px] lg:py-[56px] flex flex-col justify-between border border-steward-border shadow-steward-sm hover:border-steward-border/80 hover:bg-steward-hover transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas"
+              className={`group bg-steward-surface rounded-xl px-[24px] py-[32px] sm:px-[32px] sm:py-[48px] flex flex-col justify-between border ${plan.isHighlighted ? 'border-steward-accent/50 shadow-md' : 'border-steward-border shadow-sm'} hover:border-steward-accent transition-all duration-300 relative overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-accent focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas`}
             >
-              <div>
+              {/* Highlight Background VFX */}
+              {plan.isHighlighted && (
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-steward-accent to-steward-accent-secondary opacity-80" />
+              )}
+              
+              <div className="relative z-10">
                 {/* Plan Name */}
-                <h3 className="font-secondary font-bold text-2xl text-steward-text-primary mb-[16px]">
+                <h3 className="font-secondary font-bold text-2xl text-steward-text-primary mb-[16px] flex items-center gap-2">
+                  {plan.isHighlighted && <Navigation2 className="w-5 h-5 text-steward-accent" />}
                   {plan.name}
                 </h3>
 
@@ -129,7 +129,7 @@ export default function Pricing() {
                 </p>
 
                 {/* Plan Pricing Note */}
-                <div className="font-primary font-semibold text-[15px] text-steward-text-primary tracking-tight mb-[32px] pt-[16px] border-t border-steward-border">
+                <div className="font-primary font-semibold text-[15px] text-steward-text-primary tracking-tight mb-[32px] pt-[16px] border-t border-steward-border/50">
                   {plan.priceText}
                 </div>
 
@@ -138,22 +138,22 @@ export default function Pricing() {
                   {plan.features.map((feature, fIdx) => (
                     <li
                       key={fIdx}
-                      className="font-primary font-regular text-sm text-steward-text-secondary flex items-start space-x-2"
+                      className="font-primary font-regular text-sm text-steward-text-secondary flex items-start space-x-3"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-steward-text-muted mt-1.5 flex-shrink-0" aria-hidden="true" />
+                      <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${plan.isHighlighted ? 'bg-steward-accent' : 'bg-steward-accent-secondary'}`} aria-hidden="true" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Action Button - Touch target >= 44px */}
+              {/* Action Button */}
               <a
                 href={plan.ctaLink}
-                className={`touch-target flex items-center justify-center w-full px-[36px] py-[16px] text-base font-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas steward-interactive ${
+                className={`touch-target flex items-center justify-center w-full px-[36px] py-[16px] text-base font-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas transition-all duration-200 relative z-10 ${
                   plan.isHighlighted
-                    ? 'font-semibold bg-steward-accent text-steward-canvas border border-steward-accent rounded-md hover:bg-steward-accent-hover hover:border-steward-accent-hover'
-                    : 'font-medium border border-steward-text-primary text-steward-text-primary bg-transparent rounded-md hover:bg-steward-text-primary hover:text-steward-canvas'
+                    ? 'font-semibold bg-steward-accent text-steward-canvas rounded-lg shadow-md hover:bg-steward-accent-hover hover:shadow-lg'
+                    : 'font-medium border border-steward-border text-steward-text-primary bg-steward-canvas rounded-lg hover:border-steward-accent-secondary hover:text-steward-accent-secondary shadow-sm'
                 }`}
               >
                 {plan.ctaText}

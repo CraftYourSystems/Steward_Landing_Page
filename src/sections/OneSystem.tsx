@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, ArrowDown, Activity } from 'lucide-react';
 
 const steps = [
-  { label: 'Customer' },
-  { label: 'QR Ordering' },
-  { label: 'Kitchen Display' },
-  { label: 'Payments' },
-  { label: 'Daily Insights' },
-  { label: 'Owner' }
+  { label: 'Customer', type: 'south' },
+  { label: 'QR Ordering', type: 'south' },
+  { label: 'Kitchen Display', type: 'south' },
+  { label: 'Payments', type: 'south' },
+  { label: 'Daily Insights', type: 'north' },
+  { label: 'Owner', type: 'north' }
 ];
 
 export default function OneSystem() {
-  // Motion configurations following Level 2 and Level 3 timing parameters
   const containerVariants = {
     hidden: {},
     visible: {
@@ -22,14 +21,11 @@ export default function OneSystem() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.45,
-        ease: [0.15, 0.85, 0.35, 1] as const
-      }
+      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }
     }
   };
 
@@ -41,56 +37,69 @@ export default function OneSystem() {
       whileInView="visible"
       viewport={{ once: true, margin: '-10%' }}
       variants={containerVariants}
-      className="w-full bg-steward-canvas section-spacing flex flex-col items-center justify-center"
+      className="w-full bg-steward-canvas section-spacing flex flex-col items-center justify-center relative"
     >
-      <div className="container max-w-[1100px] flex flex-col items-center px-4 sm:px-6">
-        
-        {/* Eyebrow - Font: Inter (Primary), Weight: Medium (500) */}
-        <motion.p
-          variants={itemVariants}
-          className="font-primary font-medium text-sm sm:text-base tracking-normal text-steward-text-secondary mb-[20px]"
-        >
-          One Connected System
-        </motion.p>
+      {/* Cinematic Background Grid for Dashboard feel */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(var(--color-steward-text-muted) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-        {/* Heading - Font: Newsreader (Secondary), Weight: Bold (700) */}
+      <div className="container max-w-[1200px] flex flex-col items-center px-4 sm:px-6 relative z-10">
+        
+        {/* Eyebrow */}
+        <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mb-[20px]">
+          <Activity className="w-4 h-4 text-steward-accent-secondary" />
+          <p className="font-primary font-medium text-sm sm:text-base tracking-widest uppercase text-steward-accent-secondary">
+            System Topology
+          </p>
+        </motion.div>
+
+        {/* Heading */}
         <motion.h2
           variants={itemVariants}
-          className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.2] text-steward-text-primary text-center max-w-[700px] mb-[28px] mx-auto"
+          className="font-secondary font-bold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.2] text-steward-text-primary text-center max-w-[800px] mb-[28px] mx-auto"
         >
           One system. <br className="hidden sm:inline" />
-          Every part of your restaurant.
+          Every part connected.
         </motion.h2>
 
-        {/* Supporting Copy - Font: Inter (Primary), Size: Body (16px), Weight: Regular (400) */}
+        {/* Supporting Copy */}
         <motion.p
           variants={itemVariants}
-          className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[56px]"
+          className="font-primary font-regular text-[16px] leading-[1.7] text-steward-text-secondary text-center max-w-[650px] mb-[64px]"
         >
-          From the moment a customer scans a QR code until the day's final summary is prepared, Steward keeps every operational workflow connected through one dependable system.
+          From the moment a customer scans a QR code until the day's final summary is prepared, Steward keeps every workflow connected through a single, precise instrument panel.
         </motion.p>
 
-        {/* Operational Flow Diagram - Responsive Layout */}
+        {/* Operational Flow Diagram - Dashboard Layout */}
         <motion.div
           variants={itemVariants}
-          className="w-full flex flex-col lg:flex-row items-center justify-center gap-[32px] lg:gap-[20px]"
+          className="w-full flex flex-col lg:flex-row items-center justify-center gap-[16px] lg:gap-[12px] p-6 sm:p-10 bg-steward-surface rounded-xl shadow-steward-md border border-steward-border"
         >
           {steps.map((step, idx) => {
             const isLast = idx === steps.length - 1;
+            const isNorth = step.type === 'north';
             return (
-              <div key={idx} className="flex flex-col lg:flex-row items-center w-full lg:w-auto">
-                {/* Step Box - Softer border, stronger typography, and responsive padding */}
-                <div className="px-[24px] py-[16px] sm:px-[32px] sm:py-[20px] lg:px-[40px] lg:py-[24px] border border-steward-border rounded-md text-center bg-steward-surface min-w-[180px] font-primary text-base sm:text-lg font-semibold text-steward-text-primary tracking-tight">
-                  {step.label}
+              <div key={idx} className="flex flex-col lg:flex-row items-center w-full lg:w-auto flex-1">
+                {/* Step Box Dashboard Panel */}
+                <div className={`w-full px-[16px] py-[20px] lg:px-[20px] lg:py-[24px] border border-steward-border/50 rounded-lg text-center shadow-sm relative overflow-hidden bg-steward-canvas group hover:border-steward-accent transition-colors duration-300`}>
+                  
+                  {/* Indicator Light */}
+                  <div className={`absolute top-2 left-2 w-1.5 h-1.5 rounded-full ${isNorth ? 'bg-steward-accent shadow-[0_0_5px_var(--color-steward-accent)]' : 'bg-steward-accent-secondary shadow-[0_0_5px_var(--color-steward-accent-secondary)]'}`} />
+                  
+                  <div className="font-primary text-sm sm:text-base font-semibold text-steward-text-primary tracking-tight relative z-10">
+                    {step.label}
+                  </div>
                 </div>
 
-                {/* Connecting arrow/line - larger size to emphasize movement */}
+                {/* Connecting arrow/line - Animated Flow */}
                 {!isLast && (
-                  <div className="flex items-center justify-center py-[12px] lg:py-0 lg:px-[16px] text-steward-text-muted">
-                    {/* Desktop: Horizontal Arrow */}
-                    <ArrowRight className="hidden lg:block w-8 h-8" aria-hidden="true" />
-                    {/* Mobile/Tablet: Vertical Arrow */}
-                    <ArrowDown className="block lg:hidden w-8 h-8" aria-hidden="true" />
+                  <div className="flex items-center justify-center py-[8px] lg:py-0 lg:px-[8px] text-steward-text-muted relative">
+                    <motion.div 
+                      animate={{ opacity: [0.2, 1, 0.2], scale: [0.9, 1.1, 0.9] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: idx * 0.2 }}
+                    >
+                      <ArrowRight className="hidden lg:block w-5 h-5 text-steward-accent-secondary" aria-hidden="true" />
+                      <ArrowDown className="block lg:hidden w-5 h-5 text-steward-accent-secondary" aria-hidden="true" />
+                    </motion.div>
                   </div>
                 )}
               </div>
@@ -98,13 +107,16 @@ export default function OneSystem() {
           })}
         </motion.div>
 
-        {/* Sub-label - Centered concluding note with generous top spacing */}
-        <motion.p
+        {/* Sub-label */}
+        <motion.div
           variants={itemVariants}
-          className="font-primary font-medium text-sm text-steward-text-muted text-center tracking-normal mt-[48px] pt-[24px] border-t border-steward-border w-[240px]"
+          className="flex items-center justify-center gap-2 mt-[48px] pt-[24px] border-t border-steward-border/50 w-[240px]"
         >
-          Powered quietly by Needle
-        </motion.p>
+          <div className="w-2 h-2 rounded-full bg-steward-accent animate-pulse" />
+          <p className="font-primary font-medium text-xs uppercase tracking-widest text-steward-text-muted text-center">
+            Powered by Needle
+          </p>
+        </motion.div>
 
       </div>
     </motion.section>

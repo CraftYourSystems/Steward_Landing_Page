@@ -33,6 +33,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#features" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                  Features
+                </a>
+              </li>
+              <li>
                 <a href="#pricing" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Pricing
                 </a>

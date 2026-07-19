@@ -114,7 +114,7 @@ export default function EarlyPartners() {
                 <div className="flex items-center space-x-2">
                   <span
                     className={`font-primary font-semibold text-sm ${
-                      milestone.completed ? 'text-green-600' : 'text-steward-text-disabled'
+                      milestone.completed ? 'text-steward-accent' : 'text-steward-text-disabled'
                     }`}
                   >
                     {milestone.completed ? '✓' : '•'} {milestone.label}

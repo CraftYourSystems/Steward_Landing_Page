@@ -94,8 +94,7 @@ export default function MobileMenu({ isOpen, onClose, links, activeSection }: Mo
         role="dialog"
         aria-modal="true"
         aria-label="Navigation Menu"
-        className="fixed top-[80px] right-4 left-4 sm:left-auto sm:right-6 sm:w-[320px] z-50 rounded-2xl border border-white/10 shadow-2xl"
-        style={{ backgroundColor: 'hsl(24, 6%, 12%)' }}
+        className="fixed top-[80px] right-4 left-4 sm:left-auto sm:right-6 sm:w-[320px] z-50 rounded-2xl border border-steward-border bg-steward-canvas shadow-2xl"
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -103,13 +102,13 @@ export default function MobileMenu({ isOpen, onClose, links, activeSection }: Mo
         transition={transition}
       >
         {/* Menu Header */}
-        <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-white/10">
+        <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-steward-border">
           <span className="text-lg font-bold font-secondary text-steward-text-primary">Menu</span>
           <button
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Close menu"
-            className="touch-target flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 text-steward-text-secondary hover:bg-white/10 hover:text-steward-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus transition-colors duration-150"
+            className="touch-target flex items-center justify-center w-8 h-8 rounded-lg bg-steward-hover text-steward-text-secondary hover:bg-steward-active hover:text-steward-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus transition-colors duration-150"
           >
             <X className="w-5 h-5" />
           </button>
@@ -126,9 +125,9 @@ export default function MobileMenu({ isOpen, onClose, links, activeSection }: Mo
                     href={link.href}
                     onClick={onClose}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`flex items-center gap-2 px-3 py-3 rounded-xl text-lg font-medium font-primary transition-all duration-150 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus rounded-md ${
+                    className={`flex items-center gap-2 px-3 py-3 rounded-xl text-lg font-medium font-primary transition-all duration-150 hover:bg-steward-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus rounded-md ${
                       isActive
-                        ? 'font-semibold text-steward-text-primary bg-white/5'
+                        ? 'font-semibold text-steward-text-primary bg-steward-active'
                         : 'text-steward-text-secondary'
                     }`}
                   >

@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { Menu } from 'lucide-react';
-import MobileMenu from './MobileMenu';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import { CONTACT_INFO } from '../../config/contact';
 
 export default function Navbar() {
@@ -9,88 +8,86 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
-  // Memoized static navigation links
   const links = useMemo(() => [
     { label: 'Product', href: '#product' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'About', href: '#about' }
+    { label: 'About', href: '#about' },
+    { label: 'Features', href: '#features' },
+    { label: 'Pricing', href: '#pricing' }
   ], []);
 
-  // Passive scroll listener to manage background state transitions
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run initially to set correct state
     handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // IntersectionObserver to handle Scroll Spy
   useEffect(() => {
     const sectionIds = links.map(link => link.href.substring(1));
     const elements = sectionIds
       .map(id => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
-
     if (elements.length === 0) return;
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-30% 0px -60% 0px',
-      threshold: 0
-    };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
       });
-    }, observerOptions);
+    }, { root: null, rootMargin: '-30% 0px -60% 0px', threshold: 0 });
 
     elements.forEach(el => observer.observe(el));
-
-    return () => {
-      elements.forEach(el => observer.unobserve(el));
-      observer.disconnect();
-    };
+    return () => { elements.forEach(el => observer.unobserve(el)); observer.disconnect(); };
   }, [links]);
 
-  return (
-    <header
-      id="navbar-header"
-      className={`fixed top-0 left-0 right-0 z-50 h-[72px] border-b transition-all duration-300 ${
-        isScrolled
-          ? 'bg-steward-canvas/90 backdrop-blur-md border-steward-border shadow-steward-sm'
-          : 'bg-transparent border-transparent'
-      }`}
-    >
-      <nav
-        aria-label="Primary Navigation"
-        className="container relative h-full flex items-center justify-between"
-      >
-        {/* Left: Logo placeholder */}
-        <a
-          href="#hero"
-          aria-label="Steward Home"
-          className="touch-target flex items-center text-xl font-bold font-secondary tracking-tight hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus text-steward-text-primary"
-        >
-          Steward
-        </a>
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsMenuOpen(false); };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKey);
+    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', handleKey); };
+  }, [isMenuOpen]);
 
-        {/* Center: Desktop navigation links (Optically Centered) */}
-        <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <ul className="flex items-center gap-[32px]">
+  return (
+    <>
+      <motion.header
+        id="navbar-header"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.15, 0.85, 0.35, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
+        style={{ paddingTop: isScrolled ? '12px' : '16px' }}
+      >
+        <nav
+          aria-label="Primary Navigation"
+          className={`pointer-events-auto flex items-center gap-1 transition-all duration-500 ease-out ${
+            isScrolled
+              ? 'px-2 py-2 rounded-full border border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.04)]'
+              : 'px-6 py-3 rounded-full border border-transparent'
+          }`}
+          style={{
+            backgroundColor: isScrolled ? 'rgba(10, 10, 15, 0.8)' : 'transparent',
+            backdropFilter: isScrolled ? 'blur(24px) saturate(1.5)' : 'none',
+            WebkitBackdropFilter: isScrolled ? 'blur(24px) saturate(1.5)' : 'none',
+          }}
+        >
+          {/* Logo */}
+          <a
+            href="#hero"
+            aria-label="Steward Home"
+            className="flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white/[0.04] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            {/* Needle icon */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
+              <path d="M12 2L13.5 10L12 22L10.5 10Z" fill="currentColor" opacity="0.9" />
+              <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            </svg>
+            <span className="text-base font-bold font-secondary tracking-tight text-white">Steward</span>
+          </a>
+
+          <div className="hidden lg:block w-[1px] h-5 bg-white/[0.08] mx-1" />
+
+          {/* Desktop Links */}
+          <ul className="hidden lg:flex items-center gap-0.5">
             {links.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -98,54 +95,144 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`touch-target flex items-center text-base font-medium font-primary transition-opacity duration-150 hover:opacity-75 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md ${
-                      isActive ? 'font-semibold text-steward-text-primary' : 'text-steward-text-secondary'
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium font-primary transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                      isActive
+                        ? 'text-[#0A0A0F]'
+                        : 'text-white/60 hover:text-white/90 hover:bg-white/[0.04]'
                     }`}
                   >
-                    <span>{link.label}</span>
                     {isActive && (
-                      <span className="inline-block w-[2px] h-[2px] bg-steward-accent ml-1.5 align-baseline mb-[3px]" aria-hidden="true" />
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        className="absolute inset-0 rounded-full"
+                        style={{ background: '#FFFFFF', boxShadow: '0 0 16px rgba(255, 255, 255, 0.3)' }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
                     )}
+                    <span className="relative z-10">{link.label}</span>
                   </a>
                 </li>
               );
             })}
           </ul>
-        </div>
 
-        {/* Right: Desktop CTA & Mobile controls */}
-        <div className="flex items-center gap-[24px] lg:gap-0">
+          <div className="hidden lg:block w-[1px] h-5 bg-white/[0.08] mx-1" />
+
+          {/* Desktop CTA */}
           <a
             href={CONTACT_INFO.whatsappUrl}
-            className="touch-target flex items-center justify-center px-[28px] py-[12px] text-base font-medium font-primary border border-steward-text-primary bg-transparent rounded-md hover:bg-steward-text-primary hover:text-steward-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas text-steward-text-primary steward-interactive"
+            className="hidden lg:flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold font-primary text-[#0A0A0F] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            style={{
+              background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
+              boxShadow: '0 2px 12px rgba(255, 255, 255, 0.25)',
+            }}
           >
             Book a Demo
           </a>
 
-          {/* Hamburger Trigger for Mobile/Tablet */}
+          {/* Mobile Hamburger */}
           <button
-            onClick={() => setIsMenuOpen(true)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav-overlay"
             aria-label="Toggle menu"
-            className="lg:hidden touch-target flex items-center justify-center text-steward-text-primary hover:opacity-85 focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md"
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full text-white/80 hover:bg-white/[0.06] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            <Menu className="w-6 h-6" />
+            <AnimatePresence mode="wait">
+              {isMenuOpen ? (
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <X className="w-5 h-5" />
+                </motion.div>
+              ) : (
+                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <Menu className="w-5 h-5" />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </button>
-        </div>
-      </nav>
+        </nav>
+      </motion.header>
 
-      {/* Mobile Menu Portal (Rendered directly in tree as per instructions, using AnimatePresence for transitions) */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <MobileMenu
-            isOpen={isMenuOpen}
-            onClose={() => setIsMenuOpen(false)}
-            links={links}
-            activeSection={activeSection}
-          />
+          <>
+            <motion.div
+              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
+            />
+
+            <motion.div
+              id="mobile-nav-overlay"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation Menu"
+              className="fixed top-[80px] left-4 right-4 sm:left-auto sm:right-6 sm:w-[320px] z-50 rounded-2xl border border-white/[0.06]"
+              style={{
+                backgroundColor: 'rgba(10, 10, 15, 0.9)',
+                backdropFilter: 'blur(24px) saturate(1.5)',
+                WebkitBackdropFilter: 'blur(24px) saturate(1.5)',
+                boxShadow: '0 16px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
+              }}
+              initial={{ opacity: 0, y: -12, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.96 }}
+              transition={{ duration: 0.25, ease: [0.15, 0.85, 0.35, 1] }}
+            >
+              <div className="flex flex-col px-3 py-3">
+                <ul className="flex flex-col gap-0.5">
+                  {links.map((link, i) => {
+                    const isActive = activeSection === link.href.substring(1);
+                    return (
+                      <motion.li
+                        key={link.href}
+                        initial={{ opacity: 0, x: -16 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.05 + 0.1, duration: 0.3 }}
+                      >
+                        <a
+                          href={link.href}
+                          onClick={() => setIsMenuOpen(false)}
+                          aria-current={isActive ? 'page' : undefined}
+                          className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium font-primary transition-all duration-150 hover:bg-white/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                            isActive
+                              ? 'font-semibold text-white bg-white/[0.06]'
+                              : 'text-white/60'
+                          }`}
+                        >
+                          {isActive && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.5)]" aria-hidden="true" />
+                          )}
+                          <span>{link.label}</span>
+                        </a>
+                      </motion.li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <div className="px-3 pb-3">
+                <a
+                  href={CONTACT_INFO.whatsappUrl}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-center w-full px-6 py-3 font-semibold font-primary text-[#0A0A0F] rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all text-sm"
+                  style={{
+                    background: 'linear-gradient(135deg, #FFFFFF, #CCCCCC)',
+                    boxShadow: '0 2px 12px rgba(255, 255, 255, 0.25)',
+                  }}
+                >
+                  Book a Demo
+                </a>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

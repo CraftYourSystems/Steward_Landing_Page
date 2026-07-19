@@ -25,29 +25,32 @@
   --container-max-reading: 720px;
   --container-max-wide: 1440px;
 
-  /* Surface Hierarchy (Warm Deep Graphite, Matte Ceramic) */
-  --color-steward-canvas: hsl(24, 5%, 8%);
-  --color-steward-section: hsl(24, 5%, 10%);
-  --color-steward-surface: hsl(24, 5%, 12%);
-  --color-steward-elevated: hsl(24, 5%, 15%);
+  /* Surface Hierarchy (Void Black Theme) */
+  --color-steward-canvas: #0A0A0F;      /* Void Black */
+  --color-steward-section: #0E0E14;     /* Slightly lighter for depth */
+  --color-steward-surface: #14141E;     /* Card surfaces */
+  --color-steward-elevated: #1A1A28;    /* Elevated panels */
 
-  /* Typography Roles (Soft Ivory & Muted Warm Gray) */
-  --color-steward-text-primary: hsl(35, 12%, 88%);
-  --color-steward-text-secondary: hsl(30, 6%, 68%);
-  --color-steward-text-muted: hsl(30, 4%, 48%);
-  --color-steward-text-disabled: hsl(30, 4%, 32%);
+  /* Typography Roles */
+  --color-steward-text-primary: #F0F0F5;   /* Near-white */
+  --color-steward-text-secondary: rgba(240, 240, 245, 0.65);
+  --color-steward-text-muted: rgba(240, 240, 245, 0.4);
+  --color-steward-text-disabled: rgba(240, 240, 245, 0.2);
 
-  /* Accent (Brushed Warm Gold) & Interactive Tokens */
-  --color-steward-accent: hsl(38, 40%, 60%);
-  --color-steward-accent-hover: hsl(38, 45%, 65%);
-  --color-steward-hover: hsl(24, 5%, 18%);
-  --color-steward-active: hsl(24, 5%, 22%);
-  --color-steward-focus: hsl(38, 40%, 60%);
+  /* Accent & Interactive Tokens (Minimal Greyscale System) */
+  --color-steward-accent: #FFFFFF;         /* Pure White - Primary */
+  --color-steward-accent-secondary: #888888; /* Mid Grey - Secondary */
+  --color-steward-accent-hover: #E2E2E2;
+  --color-steward-hover: rgba(255, 255, 255, 0.06);
+  --color-steward-active: rgba(255, 255, 255, 0.12);
+  --color-steward-focus: #FFFFFF;
 
-  /* Borders & Shadows (Subtle Ceramic Separation) */
-  --color-steward-border: hsl(24, 5%, 16%);
-  --steward-shadow-sm: 0 1px 2px rgba(0,0,0,0.18);
-  --steward-shadow-md: 0 2px 6px rgba(0,0,0,0.12);
+  /* Borders & Shadows */
+  --color-steward-border: rgba(255, 255, 255, 0.08);
+  --steward-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --steward-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --steward-shadow-glow-cyan: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.05);
+  --steward-shadow-glow-amber: 0 0 20px rgba(255, 255, 255, 0.08), 0 0 60px rgba(255, 255, 255, 0.02);
 
   /* Motion Placeholders */
   --steward-duration-fast: 150ms;
