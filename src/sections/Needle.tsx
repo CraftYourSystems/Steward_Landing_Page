@@ -23,7 +23,7 @@ export default function Needle() {
       scale: 1,
       y: 0,
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 100, damping: 15, delay: 0.3 }
+      transition: { type: 'spring' as const, stiffness: 100, damping: 15, delay: 0.3 }
     }
   };
 
@@ -41,7 +41,7 @@ export default function Needle() {
       y: 0,
       filter: 'blur(0px)',
       scale: 1,
-      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] }
+      transition: { duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }
     }
   };
 

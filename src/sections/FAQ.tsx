@@ -64,7 +64,7 @@ export default function FAQ() {
       scale: 1, 
       y: 0, 
       filter: 'blur(0px)', 
-      transition: { duration: 1.2, ease: [0.15, 0.85, 0.35, 1] } 
+      transition: { duration: 1.2, ease: [0.15, 0.85, 0.35, 1] as const } 
     }
   };
 

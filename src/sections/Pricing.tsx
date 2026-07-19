@@ -66,7 +66,7 @@ export default function Pricing() {
       scale: 1,
       y: 0,
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 90, damping: 14 }
+      transition: { type: 'spring' as const, stiffness: 90, damping: 14 }
     }
   };
 

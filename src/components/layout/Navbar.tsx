@@ -53,7 +53,7 @@ export default function Navbar() {
         id="navbar-header"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.15, 0.85, 0.35, 1] }}
+        transition={{ duration: 0.8, ease: [0.15, 0.85, 0.35, 1] as const }}
         className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none"
         style={{ paddingTop: isScrolled ? '12px' : '16px' }}
       >
@@ -183,7 +183,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -12, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.96 }}
-              transition={{ duration: 0.25, ease: [0.15, 0.85, 0.35, 1] }}
+              transition={{ duration: 0.25, ease: [0.15, 0.85, 0.35, 1] as const }}
             >
               <div className="flex flex-col px-3 py-3">
                 <ul className="flex flex-col gap-0.5">

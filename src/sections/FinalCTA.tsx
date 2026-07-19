@@ -20,7 +20,7 @@ export default function FinalCTA() {
       filter: 'blur(0px)',
       transition: {
         duration: 1.2,
-        ease: [0.15, 0.85, 0.35, 1]
+        ease: [0.15, 0.85, 0.35, 1] as const
       }
     }
   };

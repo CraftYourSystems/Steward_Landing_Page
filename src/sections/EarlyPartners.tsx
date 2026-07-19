@@ -24,7 +24,7 @@ export default function EarlyPartners() {
       scale: 1,
       y: 0,
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 100, damping: 15, delay: 0.15 }
+      transition: { type: 'spring' as const, stiffness: 100, damping: 15, delay: 0.15 }
     }
   };
 
@@ -34,7 +34,7 @@ export default function EarlyPartners() {
       opacity: 1,
       scale: 1,
       filter: 'blur(0px)',
-      transition: { type: 'spring', stiffness: 100, damping: 15, delay: 0.3 }
+      transition: { type: 'spring' as const, stiffness: 100, damping: 15, delay: 0.3 }
     }
   };
 
