@@ -9,10 +9,11 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
 
   const links = useMemo(() => [
-    { label: 'Product', href: '#product' },
-    { label: 'About', href: '#about' },
-    { label: 'Features', href: '#features' },
-    { label: 'Pricing', href: '#pricing' }
+    { label: 'Product', href: '/#product' },
+    { label: 'About', href: '/#about' },
+    { label: 'Features', href: '/#features' },
+    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Resources', href: '/resources' }
   ], []);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = links.map(link => link.href.substring(1));
+    const sectionIds = links.map(link => link.href.split('#')[1]);
     const elements = sectionIds
       .map(id => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -72,7 +73,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <a
-            href="#hero"
+            href="/#hero"
             aria-label="Steward Home"
             className="flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white/[0.04] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
@@ -89,7 +90,7 @@ export default function Navbar() {
           {/* Desktop Links */}
           <ul className="hidden lg:flex items-center gap-0.5">
             {links.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = activeSection === link.href.split('#')[1];
               return (
                 <li key={link.href}>
                   <a
@@ -188,7 +189,7 @@ export default function Navbar() {
               <div className="flex flex-col px-3 py-3">
                 <ul className="flex flex-col gap-0.5">
                   {links.map((link, i) => {
-                    const isActive = activeSection === link.href.substring(1);
+                    const isActive = activeSection === link.href.split('#')[1];
                     return (
                       <motion.li
                         key={link.href}

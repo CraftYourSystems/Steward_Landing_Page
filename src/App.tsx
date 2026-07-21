@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import SEOHead from './seo/SEOHead';
 import Navbar from './components/layout/Navbar';
 import CompassBackground from './components/layout/CompassBackground';
 import AbstractShapes from './components/layout/AbstractShapes';
@@ -13,52 +17,104 @@ import FAQ from './sections/FAQ';
 import FinalCTA from './sections/FinalCTA';
 import Footer from './components/layout/Footer';
 
-export default function App() {
+// Feature Pages
+import LiveOpsPage from './feature-pages/pages/live-ops/page';
+import MenuPage from './feature-pages/pages/menu/page';
+import FinancePage from './feature-pages/pages/finance/page';
+import NeedlePage from './feature-pages/pages/needle/page';
+import SettingsPage from './feature-pages/pages/settings/page';
+import KitchenBoardPage from './feature-pages/pages/kitchen-board/page';
+import CampaignsPage from './feature-pages/pages/campaigns/page';
+import CustomersPage from './feature-pages/pages/customers/page';
+import InventoryPage from './feature-pages/pages/inventory/page';
+import LiveCounterPage from './feature-pages/pages/live-counter/page';
+import LogbookPage from './feature-pages/pages/logbook/page';
+import OrdersPage from './feature-pages/pages/orders/page';
+import StaffPage from './feature-pages/pages/staff/page';
+import ResourcesPage from './feature-pages/pages/resources/page';
+import EndOfPosReportPage from './feature-pages/pages/resources/end-of-pos-report/page';
+import FoodCostCalculatorPage from './feature-pages/pages/resources/food-cost-calculator/page';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function PageTransition({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-primary text-steward-text-secondary bg-steward-canvas min-h-screen relative">
-      {/* Abstract ambient shapes layer */}
-      <AbstractShapes />
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full h-full"
+    >
+      {children}
+    </motion.div>
+  );
+}
 
-      {/* Global Animated Compass */}
-      <CompassBackground />
+function LandingPage() {
+  return (
+    <PageTransition>
+      <SEOHead path="/" />
+      <div className="font-primary text-steward-text-secondary bg-steward-canvas min-h-screen relative">
+        <AbstractShapes />
+        <CompassBackground />
+        <main className="section-gap relative z-10" style={{ paddingTop: '72px' }}>
+          <Hero />
+          <Needle />
+          <OneSystem />
+          <DayWithSteward />
+          <BuiltForRestaurants />
+          <Features />
+          <Pricing />
+          <EarlyPartners />
+          <FAQ />
+          <FinalCTA />
+        </main>
+      </div>
+    </PageTransition>
+  );
+}
 
-      {/* Navigation Component */}
+export default function App() {
+  const location = useLocation();
+
+  return (
+    <div className="flex flex-col min-h-screen bg-steward-canvas text-steward-text-secondary">
+      <ScrollToTop />
       <Navbar />
+      
+      <div className="flex-grow">
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/live-ops" element={<PageTransition><LiveOpsPage /></PageTransition>} />
+            <Route path="/menu" element={<PageTransition><MenuPage /></PageTransition>} />
+            <Route path="/finance" element={<PageTransition><FinancePage /></PageTransition>} />
+            <Route path="/needle" element={<PageTransition><NeedlePage /></PageTransition>} />
+            <Route path="/settings" element={<PageTransition><SettingsPage /></PageTransition>} />
+            <Route path="/kitchen-board" element={<PageTransition><KitchenBoardPage /></PageTransition>} />
+            <Route path="/campaigns" element={<PageTransition><CampaignsPage /></PageTransition>} />
+            <Route path="/customers" element={<PageTransition><CustomersPage /></PageTransition>} />
+            <Route path="/inventory" element={<PageTransition><InventoryPage /></PageTransition>} />
+            <Route path="/live-counter" element={<PageTransition><LiveCounterPage /></PageTransition>} />
+            <Route path="/logbook" element={<PageTransition><LogbookPage /></PageTransition>} />
+            <Route path="/orders" element={<PageTransition><OrdersPage /></PageTransition>} />
+            <Route path="/staff" element={<PageTransition><StaffPage /></PageTransition>} />
+            <Route path="/resources" element={<PageTransition><ResourcesPage /></PageTransition>} />
+            <Route path="/resources/end-of-pos-report" element={<PageTransition><EndOfPosReportPage /></PageTransition>} />
+            <Route path="/resources/food-cost-calculator" element={<PageTransition><FoodCostCalculatorPage /></PageTransition>} />
+          </Routes>
+        </AnimatePresence>
+      </div>
 
-      {/* Main content — section-gap creates physical gaps between each section */}
-      <main className="section-gap relative z-10" style={{ paddingTop: '72px' }}>
-        {/* Hero Section */}
-        <Hero />
-
-        {/* Needle Section */}
-        <Needle />
-
-        {/* One System Section */}
-        <OneSystem />
-
-        {/* Day with Steward Section */}
-        <DayWithSteward />
-
-        {/* Built for Restaurants Section */}
-        <BuiltForRestaurants />
-
-        {/* Features Section */}
-        <Features />
-
-        {/* Pricing Section */}
-        <Pricing />
-
-        {/* Early Partners Section */}
-        <EarlyPartners />
-
-        {/* FAQ Section */}
-        <FAQ />
-
-        {/* Final CTA Section */}
-        <FinalCTA />
-      </main>
-
-      {/* Footer Component */}
       <Footer />
     </div>
   );

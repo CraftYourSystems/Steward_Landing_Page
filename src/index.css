@@ -29,9 +29,52 @@
   --transition-duration-steward-slow: var(--steward-duration-slow);
   --transition-timing-function-steward-standard: var(--steward-ease-standard);
   --transition-timing-function-steward-emphasized: var(--steward-ease-emphasized);
+
+  /* Feature Pages (Next.js migrated) Theme Variables */
+  --color-background: #080808;
+  --color-surface: #111214;
+  --color-card: #141418;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A4A4AA;
+  --color-text-muted: #6F6F78;
+  --color-accent-red: #E03131;
+
+  --font-hero: 'Instrument Serif', 'Editorial New', 'Canela', serif;
+  --font-primary: 'Inter', sans-serif;
+  --font-alternative: 'Geist', sans-serif;
+
+  --radius-card: 24px;
+  --radius-card-sm: 16px;
+
+  --animate-spin-slow: spin 120s linear infinite;
 }
 
 @import "./styles/variables.css";
 @import "./styles/typography.css";
 @import "./styles/animations.css";
 @import "./styles/globals.css";
+
+/* Feature Pages (Next.js migrated) Utilities & Keyframes */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .font-hero {
+    font-family: var(--font-secondary), 'Newsreader', serif;
+  }
+
+  .font-primary {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+  }
+
+  /* Fine grid texture */
+  .bg-grid-subtle {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+}

@@ -1,42 +1,49 @@
 import { motion } from 'framer-motion';
 import { QrCode, Monitor, CreditCard, BarChart3, BellRing, Settings2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const features = [
   {
     icon: <QrCode className="w-6 h-6" />,
     title: 'QR Ordering',
     description: 'Precision-engineered digital menus that let your customers order directly from their table.',
-    type: 'south' // Blue accent
+    type: 'south', // Blue accent
+    link: '/menu'
   },
   {
     icon: <Monitor className="w-6 h-6" />,
     title: 'Kitchen Display (KDS)',
     description: 'Synchronized kitchen routing that eliminates paper tickets and reduces prep errors.',
-    type: 'south'
+    type: 'south',
+    link: '/kitchen-board'
   },
   {
     icon: <CreditCard className="w-6 h-6" />,
     title: 'Integrated Payments',
     description: 'Seamless checkout experiences directly at the table or counter.',
-    type: 'south'
+    type: 'south',
+    link: '/finance'
   },
   {
     icon: <BarChart3 className="w-6 h-6" />,
     title: 'Daily Insights',
     description: 'Deep operational analytics that point you to the most profitable decisions.',
-    type: 'north' // Red accent
+    type: 'north', // Red accent
+    link: '/live-ops'
   },
   {
     icon: <BellRing className="w-6 h-6" />,
     title: 'Needle Briefings',
     description: 'Proactive morning briefings that ensure you start the day with clarity.',
-    type: 'north'
+    type: 'north',
+    link: '/needle'
   },
   {
     icon: <Settings2 className="w-6 h-6" />,
     title: 'Central Control',
     description: 'Manage menus, staff, and settings across multiple locations from one dashboard.',
-    type: 'north'
+    type: 'north',
+    link: '/settings'
   }
 ];
 
@@ -105,31 +112,31 @@ export default function Features() {
           {features.map((feature, idx) => {
             const isNorth = feature.type === 'north';
             return (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                className="group relative bg-steward-surface border border-steward-border rounded-xl p-[32px] overflow-hidden hover:border-steward-border/80 hover:shadow-steward-md transition-all duration-300 flex flex-col items-start"
-              >
-                {/* Hover Glow Effect */}
-                <div 
-                  className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl pointer-events-none ${isNorth ? 'bg-steward-accent' : 'bg-steward-accent-secondary'}`} 
-                />
+              <motion.div key={idx} variants={itemVariants} className="h-full w-full block">
+                <Link to={feature.link} className="block w-full h-full">
+                  <div className="group relative h-full bg-steward-surface border border-steward-border rounded-xl p-[32px] overflow-hidden hover:border-steward-border/80 hover:shadow-steward-md transition-all duration-300 flex flex-col items-start cursor-pointer">
+                    {/* Hover Glow Effect */}
+                    <div 
+                      className={`absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl pointer-events-none ${isNorth ? 'bg-steward-accent' : 'bg-steward-accent-secondary'}`} 
+                    />
 
-                {/* Icon Container */}
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 shadow-sm border ${isNorth ? 'bg-steward-accent/10 border-steward-accent/20 text-steward-accent' : 'bg-steward-accent-secondary/10 border-steward-accent-secondary/20 text-steward-accent-secondary'}`}>
-                  {feature.icon}
-                </div>
+                    {/* Icon Container */}
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 shadow-sm border ${isNorth ? 'bg-steward-accent/10 border-steward-accent/20 text-steward-accent' : 'bg-steward-accent-secondary/10 border-steward-accent-secondary/20 text-steward-accent-secondary'}`}>
+                      {feature.icon}
+                    </div>
 
-                {/* Content */}
-                <h3 className="font-secondary font-bold text-xl text-steward-text-primary mb-3">
-                  {feature.title}
-                </h3>
-                <p className="font-primary font-regular text-sm text-steward-text-secondary leading-relaxed">
-                  {feature.description}
-                </p>
+                    {/* Content */}
+                    <h3 className="font-secondary font-bold text-xl text-steward-text-primary mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="font-primary font-regular text-sm text-steward-text-secondary leading-relaxed">
+                      {feature.description}
+                    </p>
 
-                {/* Bottom decorative line */}
-                <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #A0A0A0 0%, #404040 50%, #050505 100%)' }} />
+                    {/* Bottom decorative line */}
+                    <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500" style={{ background: 'linear-gradient(90deg, #A0A0A0 0%, #404040 50%, #050505 100%)' }} />
+                  </div>
+                </Link>
               </motion.div>
             );
           })}
