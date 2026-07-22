@@ -3,7 +3,7 @@ import ResourceArticleWrapper from '../ResourceArticleWrapper';
 export default function EndOfPosReportPage() {
   return (
     <ResourceArticleWrapper path="/resources/end-of-pos-report">
-      <h1 className="font-display font-medium text-4xl md:text-5xl text-steward-text-primary mb-12">
+      <h1 className="font-secondary font-bold text-4xl md:text-5xl text-steward-text-primary mb-12 leading-tight">
         The End of the POS: Why 60% of High-Volume Restaurants are Moving to Unified Systems
       </h1>
 
@@ -11,7 +11,7 @@ export default function EndOfPosReportPage() {
         For the last decade, the point-of-sale (POS) terminal has been the center of the restaurant universe. Every order, every payment, and every kitchen ticket flowed through a piece of hardware bolted to the counter. But as restaurants evolved to handle dine-in, takeaway, QR ordering, and delivery simultaneously, the traditional POS became a bottleneck rather than an enabler.
       </p>
 
-      <h2 className="font-display font-medium text-3xl text-steward-text-primary mt-12 mb-6">
+      <h2 className="font-secondary font-bold text-3xl text-steward-text-primary mt-12 mb-6">
         The Fragmentation Problem
       </h2>
 
@@ -32,7 +32,7 @@ export default function EndOfPosReportPage() {
         The hidden cost of this fragmentation isn't just subscription fees — it's the operational drag. When systems don't talk to each other, managers spend their time bridging data gaps rather than managing the floor.
       </p>
 
-      <h2 className="font-display font-medium text-3xl text-steward-text-primary mt-12 mb-6">
+      <h2 className="font-secondary font-bold text-3xl text-steward-text-primary mt-12 mb-6">
         The Shift to the Operating System
       </h2>
 

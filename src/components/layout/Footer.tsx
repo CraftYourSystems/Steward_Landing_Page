@@ -151,8 +151,20 @@ export default function Footer() {
           <span className="font-primary text-xs text-steward-text-secondary font-regular">
             &copy; {currentYear} Steward.
           </span>
-          <span className="font-primary text-xs text-steward-text-muted font-regular">
-            Built thoughtfully for restaurants.
+          <span className="font-primary text-xs text-steward-text-muted font-regular flex flex-col sm:flex-row items-center sm:gap-3 gap-1 text-center sm:text-right">
+            <span>Built thoughtfully for restaurants.</span>
+            <span className="hidden sm:inline text-steward-text-muted/40">•</span>
+            <span>
+              Built by{' '}
+              <a 
+                href="https://craftyoursystems.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-steward-text-secondary transition-colors duration-200"
+              >
+                CraftYourSystems
+              </a>
+            </span>
           </span>
         </div>
 

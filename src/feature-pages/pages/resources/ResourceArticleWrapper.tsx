@@ -61,7 +61,7 @@ export default function ResourceArticleWrapper({ path, children }: ResourceArtic
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="mb-12 p-6 rounded-xl bg-steward-surface border border-steward-accent/20 shadow-glow-cyan"
+              className="mb-12 p-6 rounded-xl bg-steward-surface border border-steward-border shadow-sm"
             >
               <h2 className="sr-only">Quick Answer</h2>
               <p className="font-primary text-lg md:text-xl text-steward-text-primary leading-relaxed">

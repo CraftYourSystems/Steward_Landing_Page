@@ -12,7 +12,7 @@ export default function FoodCostCalculatorPage() {
 
   return (
     <ResourceArticleWrapper path="/resources/food-cost-calculator">
-      <h1 className="font-display font-medium text-4xl md:text-5xl text-steward-text-primary mb-12">
+      <h1 className="font-secondary font-bold text-4xl md:text-5xl text-steward-text-primary mb-12 leading-tight">
         True Food Cost & Margin Calculator
       </h1>
 
@@ -64,7 +64,7 @@ export default function FoodCostCalculatorPage() {
             <div>
               <p className="font-primary text-sm text-steward-text-secondary mb-1">Standard Food Cost</p>
               <div className="flex items-end gap-3">
-                <span className="font-display text-4xl text-steward-text-primary">{foodCostPercentage}%</span>
+                <span className="font-secondary font-bold text-4xl text-steward-text-primary">{foodCostPercentage}%</span>
                 <span className="text-sm text-steward-text-muted mb-1">Target: ~28-32%</span>
               </div>
             </div>
@@ -74,21 +74,21 @@ export default function FoodCostCalculatorPage() {
             <div>
               <p className="font-primary text-sm text-steward-text-secondary mb-1">True Profit (After Labor)</p>
               <div className="flex items-end gap-3">
-                <span className="font-display text-4xl text-steward-accent">${trueProfit.toFixed(2)}</span>
+                <span className="font-secondary font-bold text-4xl text-steward-accent">${trueProfit.toFixed(2)}</span>
               </div>
             </div>
 
             <div>
               <p className="font-primary text-sm text-steward-text-secondary mb-1">True Margin %</p>
               <div className="flex items-end gap-3">
-                <span className="font-display text-2xl text-steward-text-primary">{trueMarginPercentage}%</span>
+                <span className="font-secondary font-bold text-2xl text-steward-text-primary">{trueMarginPercentage}%</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <h2 className="font-display font-medium text-3xl text-steward-text-primary mt-12 mb-6">
+      <h2 className="font-secondary font-bold text-3xl text-steward-text-primary mt-12 mb-6">
         Why standard food cost isn't enough
       </h2>
 
