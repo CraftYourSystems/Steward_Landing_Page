@@ -77,12 +77,9 @@ export default function Navbar() {
             aria-label="Steward Home"
             className="flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white/[0.04] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            {/* Needle icon */}
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-white">
-              <path d="M12 2L13.5 10L12 22L10.5 10Z" fill="currentColor" opacity="0.9" />
-              <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
-            </svg>
-            <span className="text-base font-bold font-secondary tracking-tight text-white">Steward</span>
+            {/* Clean Growth Symbol Vector SVG */}
+            <img src="/symbol-white.svg" alt="Steward symbol" className="w-7 h-7 object-contain" />
+            <span className="text-lg font-bold font-secondary tracking-tight text-white">Steward</span>
           </a>
 
           <div className="hidden lg:block w-[1px] h-5 bg-white/[0.08] mx-1" />

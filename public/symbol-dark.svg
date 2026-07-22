@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Smooth S Curve -->
+  <path d="M 345 115 C 230 45, 145 130, 200 230 C 250 300, 320 280, 285 360 C 250 425, 175 400, 135 360" 
+        stroke="#0A0A0F" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bar Chart Columns -->
+  <rect x="175" y="270" width="24" height="65" rx="5" fill="#0A0A0F"/>
+  <rect x="212" y="235" width="24" height="100" rx="5" fill="#0A0A0F"/>
+  <rect x="249" y="195" width="24" height="140" rx="5" fill="#0A0A0F"/>
+  <!-- Growth Arrow Swoop -->
+  <path d="M 120 365 C 160 455, 315 450, 365 305" 
+        stroke="#0A0A0F" stroke-width="24" stroke-linecap="round"/>
+  <!-- Arrowhead -->
+  <path d="M 342 298 L 382 282 L 376 332 Z" fill="#0A0A0F"/>
+</svg>
