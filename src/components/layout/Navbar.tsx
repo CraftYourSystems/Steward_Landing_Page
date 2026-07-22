@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { CONTACT_INFO } from '../../config/contact';
+import stewardLogo from '../../assets/logos/Steward_Logo.png';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,9 +78,7 @@ export default function Navbar() {
             aria-label="Steward Home"
             className="flex items-center gap-2 px-4 py-2 rounded-full hover:bg-white/[0.04] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            {/* Clean Growth Symbol Vector SVG */}
-            <img src="/symbol-white.svg" alt="Steward symbol" className="w-7 h-7 object-contain" />
-            <span className="text-lg font-bold font-secondary tracking-tight text-white">Steward</span>
+            <img src={stewardLogo} alt="Steward" className="h-7 w-auto object-contain" />
           </a>
 
           <div className="hidden lg:block w-[1px] h-5 bg-white/[0.08] mx-1" />

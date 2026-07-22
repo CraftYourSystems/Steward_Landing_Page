@@ -1,4 +1,5 @@
 import { CONTACT_INFO } from '../../config/contact';
+import stewardLogo from '../../assets/logos/Steward_Logo.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,11 +14,8 @@ export default function Footer() {
           {/* Column 1: Brand Info (Spans 2 columns on large screens for layout balance) */}
           <div className="lg:col-span-2 max-w-[320px]">
             {/* Logo */}
-            <a href="/#hero" className="flex items-center gap-2.5 mb-[16px] inline-flex">
-              <img src="/symbol-white.svg" alt="Steward symbol" className="w-8 h-8 object-contain" />
-              <span className="font-secondary font-bold text-2xl text-steward-text-primary">
-                Steward
-              </span>
+            <a href="/#hero" className="flex items-center mb-[16px] inline-flex">
+              <img src={stewardLogo} alt="Steward" className="h-8 w-auto object-contain" />
             </a>
             <p className="font-primary font-regular text-sm text-steward-text-secondary leading-[1.6]">
               Steward is a restaurant operating system designed to bring clarity to everyday operations through one connected platform.
