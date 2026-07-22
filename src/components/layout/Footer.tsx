@@ -160,7 +160,7 @@ export default function Footer() {
                 href="https://craftyoursystems.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="hover:text-steward-text-secondary transition-colors duration-200"
+                className="text-sm font-medium text-steward-text-secondary hover:text-steward-text-primary transition-colors duration-200"
               >
                 CraftYourSystems
               </a>
