@@ -13,8 +13,7 @@ export default function Navbar() {
     { label: 'Product', href: '/#product' },
     { label: 'About', href: '/#about' },
     { label: 'Features', href: '/#features' },
-    { label: 'Pricing', href: '/#pricing' },
-    { label: 'Resources', href: '/resources' }
+    { label: 'Pricing', href: '/#pricing' }
   ], []);
 
   useEffect(() => {

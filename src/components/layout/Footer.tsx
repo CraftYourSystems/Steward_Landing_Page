@@ -29,17 +29,17 @@ export default function Footer() {
             </span>
             <ul className="space-y-[12px]">
               <li>
-                <a href="#product" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/#product" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Product
                 </a>
               </li>
               <li>
-                <a href="#features" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/#features" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Features
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/#pricing" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Pricing
                 </a>
               </li>
@@ -58,12 +58,12 @@ export default function Footer() {
             </span>
             <ul className="space-y-[12px]">
               <li>
-                <a href="#about" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/#about" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   About
                 </a>
               </li>
               <li>
-                <a href="#early-partners" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/#early-partners" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Early Partners
                 </a>
               </li>
@@ -97,17 +97,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#faq" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/#faq" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Frequently Asked Questions
                 </a>
               </li>
               <li>
-                <a href="#privacy" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/privacy" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#terms" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
+                <a href="/terms" className="touch-target font-primary font-regular text-sm text-steward-text-secondary hover:text-steward-text-primary hover:underline underline-offset-4 decoration-1 decoration-steward-accent transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-steward-focus focus-visible:ring-offset-2 focus-visible:ring-offset-steward-canvas rounded-md">
                   Terms of Service
                 </a>
               </li>
@@ -157,7 +157,7 @@ export default function Footer() {
             <span>
               Built by{' '}
               <a 
-                href="https://craftyoursystems.com" 
+                href="https://craftyoursystems.in" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-sm font-medium text-steward-text-secondary hover:text-steward-text-primary transition-colors duration-200"

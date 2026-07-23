@@ -851,5 +851,17 @@ export const seoConfig: Record<string, PageSEO> = {
       { label: 'Inventory Management', href: '/inventory' },
       { label: 'Finance & Payments', href: '/finance' }
     ]
+  },
+  '/privacy': {
+    title: 'Privacy Policy — Steward Restaurant OS',
+    description: 'Privacy Policy for Steward restaurant operating system. Learn how we handle and protect your restaurant data.',
+    keywords: 'privacy policy, steward privacy, restaurant data security',
+    canonical: `${DOMAIN}/privacy`,
+  },
+  '/terms': {
+    title: 'Terms of Service — Steward Restaurant OS',
+    description: 'Terms of Service for Steward restaurant operating system. Understand the rules, guidelines, and agreements for using our platform.',
+    keywords: 'terms of service, steward terms, user agreement',
+    canonical: `${DOMAIN}/terms`,
   }
 };

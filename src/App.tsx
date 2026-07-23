@@ -34,13 +34,34 @@ import StaffPage from './feature-pages/pages/staff/page';
 import ResourcesPage from './feature-pages/pages/resources/page';
 import EndOfPosReportPage from './feature-pages/pages/resources/end-of-pos-report/page';
 import FoodCostCalculatorPage from './feature-pages/pages/resources/food-cost-calculator/page';
+import PrivacyPage from './feature-pages/pages/privacy/page';
+import TermsPage from './feature-pages/pages/terms/page';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    if (hash) {
+      // Wait a tiny bit for the components to render, then scroll to the element
+      const element = document.getElementById(hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        timer = setTimeout(() => {
+          const el = document.getElementById(hash.slice(1));
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [pathname, hash]);
 
   return null;
 }
@@ -111,6 +132,8 @@ export default function App() {
             <Route path="/resources" element={<PageTransition><ResourcesPage /></PageTransition>} />
             <Route path="/resources/end-of-pos-report" element={<PageTransition><EndOfPosReportPage /></PageTransition>} />
             <Route path="/resources/food-cost-calculator" element={<PageTransition><FoodCostCalculatorPage /></PageTransition>} />
+            <Route path="/privacy" element={<PageTransition><PrivacyPage /></PageTransition>} />
+            <Route path="/terms" element={<PageTransition><TermsPage /></PageTransition>} />
           </Routes>
         </AnimatePresence>
       </div>
